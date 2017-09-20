@@ -127,7 +127,14 @@ public class RSSFeedParser {
 						description = descString;
 						break;
 					case LINK:
-						link = getCharacterData(event, eventReader);
+						// Modelando link...
+						String dataLink = getCharacterData(event, eventReader);
+						String linkURL = dataLink.trim();
+
+						System.out.println("URL : " + linkURL);
+
+						// Atribuindo valor de link
+						link = linkURL;
 						break;
 					case LANGUAGE:
 						language = getCharacterData(event, eventReader);
@@ -160,8 +167,10 @@ public class RSSFeedParser {
 							dataObj = sdf.parse(pubDateString);
 
 							// sysout
-							System.out.println("Formato Original : " + sdf.parse(pubDateString));
-							System.out.println("Formato BR : " + sdfBR.format(dataObj) + "\n");
+							// System.out.println("Formato Original : " +
+							// sdf.parse(pubDateString));
+							// System.out.println("Formato BR : " +
+							// sdfBR.format(dataObj) + "\n");
 						} catch (ParseException e) {
 							e.printStackTrace();
 						}

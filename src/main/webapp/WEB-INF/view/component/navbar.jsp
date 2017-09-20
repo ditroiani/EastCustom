@@ -9,7 +9,6 @@
 	<ul id="dropdown-navbar" class="dropdown-content">
 		<li><a href="#!">Nós</a></li>
 		<li><a href="#!">Serviços</a></li>
-		<li><a href="#!">Contato</a></li>
 	</ul>
 
 	<!-- Navbar -->

@@ -21,10 +21,10 @@
 
 /* Conteúdo do parallax */
 .parallax-container {
-	min-height: 400px;
+	color: rgba(255, 255, 255, .9);
+	min-height: 412px;
 	line-height: 0;
 	height: auto;
-	color: rgba(255, 255, 255, .9);
 }
 
 /* Imagem do parallax */
@@ -64,9 +64,15 @@
 }
 
 /* Descrição da notícia */
-#ultimas-noticias p {
+#descricao-noticia {
+	font-size: 16px;
+	line-height: 1.2;
+	margin-top: 10px;
+}
+
+/* Data da notícia */
+#data-noticia {
 	font-size: 12px;
-	line-height: 1.5;
 }
 
 /* Li de noticia */
@@ -79,6 +85,7 @@
 	background-color: rgb(196, 23, 12);
 	color: white;
 	transition: 1.0s;
+	cursor: pointer;
 }
 
 /* Footer */

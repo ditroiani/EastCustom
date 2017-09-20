@@ -70,7 +70,6 @@
 
 			<!-- Lista de Notícias -->
 			<ul id="ultimas-noticias" class="collection hoverable">
-				<!-- ... -->
 			</ul>
 		</div>
 	</div>
