@@ -5,25 +5,14 @@
 <head>
 </head>
 <body>
-	<!-- Dropdown Structure -->
-	<ul id="dropdown-navbar" class="dropdown-content">
-		<li><a href="#!">Nós</a></li>
-		<li><a href="#!">Serviços</a></li>
-	</ul>
-
 	<!-- Navbar -->
-	<nav class="black z-depth-0">
+	<header> <nav class="black z-depth-0">
 	<div class="nav-wrapper">
 		<!-- Logo -->
-		<a id="logo-navbar" href="#" class="brand-logo center white-text">East
-			Custom</a>
-
-		<!-- Link -->
-		<ul class="right">
-			<li><a class="dropdown-button" href="#!"
-				data-activates="dropdown-navbar"><i class="material-icons">arrow_drop_down</i></a></li>
-		</ul>
+		<a href="#" class="brand-logo center"><img
+			alt="Mecânica e Injeção Eletrônica"
+			title="Mecânica e Injeção Eletrônica" src="resources/img/logo2.png"></a>
 	</div>
-	</nav>
+	</nav> </header>
 </body>
 </html>

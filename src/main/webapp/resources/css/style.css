@@ -1,28 +1,43 @@
-/* Nome da empresa na navbar */
-#logo-navbar {
-	font-family: 'Megrim', cursive;
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	font-size: 16px;
 }
 
-/* Dropdown */
-.dropdown-content {
-	background: black;
-	color: white;
+main {
+	flex: 1 0 auto;
 }
 
-/* Hover in line */
-.dropdown-content li:hover {
-	background: white;
+/* Largura da barra de rolagem (Desabilitando) */
+::-webkit-scrollbar {
+	/* width: 0px; */
+	
 }
 
-/* Hover in link */
-.dropdown-content a:hover {
-	color: black;
+/* Navbar */
+nav {
+	height: 20vh;;
+}
+
+/* Tamanho do logo */
+.nav-wrapper .brand-logo img {
+	height: 20vh;
+	opacity: 0.5;
+	filter: grayscale(75%);
+	transition: 0.6s;
+}
+
+.nav-wrapper .brand-logo img:hover {
+	opacity: 0.9;
+	filter: none;
+	transition: 1.0s;
 }
 
 /* Conteúdo do parallax */
 .parallax-container {
 	color: rgba(255, 255, 255, .9);
-	min-height: 412px;
+	min-height: 80vh;
 	line-height: 0;
 	height: auto;
 }
@@ -37,78 +52,179 @@
 	width: 100%;
 }
 
-/* Conteúdo com ícone */
-.icon-block {
-	padding: 0 15px;
+/* Logo de montadoras */
+#montadora .col img {
+	filter: grayscale(75%);
+	transition: 0.8s;
 }
 
-.icon-block .material-icons {
-	font-size: inherit;
-}
-
-/* Notícias collection */
-#ultimas-noticias {
-	height: 440px;
-	overflow-y: hidden;
-}
-
-/* Barra de rolagem na lista */
-#ultimas-noticias:hover {
-	overflow-y: scroll;
-}
-
-/* Título do item da oticia */
-#ultimas-noticias li .title {
-	font-size: 20px;
-	font-weight: bold;
-}
-
-/* Descrição da notícia */
-#descricao-noticia {
-	font-size: 16px;
-	line-height: 1.2;
-	margin-top: 10px;
-}
-
-/* Data da notícia */
-#data-noticia {
-	font-size: 12px;
-}
-
-/* Li de noticia */
-#ultimas-noticias li {
-	transition: 0.6s;
-}
-
-/* Hover em li de noticia */
-#ultimas-noticias li:hover {
-	background-color: rgb(196, 23, 12);
-	color: white;
+#montadora .col img:hover {
+	filter: none;
 	transition: 1.0s;
+}
+
+/* Header Promoções*/
+#header-promocao {
+	text-align: left;
+}
+
+/* Content Promoções */
+#content-promocao {
+	background: blue;
+	width: 100%;
+	height: 80vh;
+}
+
+#header-noticias {
+	text-align: right;
+}
+
+/* Preloader para Notícias */
+#preloader {
+	position: relative;
+	width: 100%;
+	height: 80vh;
+	margin: auto;
+	display: block;
+}
+
+#preloader-inner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+/* Carousel para feeds */
+#feed-carousel {
+	display: none;
+	width: 100%;
+	height: 80vh;
+}
+
+/* Imagem do feed */
+.img-feed {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	position: relative;
+}
+
+/* Descrição do feed */
+.desc-feed {
+	background: black;
+	color: white;
+	position: absolute;
+	display: table;
+	width: 100%;
+	height: 25%;
+	left: 0;
+	bottom: 0;
+	padding: 5px;
+	transition: 0.6s;
+	opacity: 0.3;
+}
+
+/* Hover do feed */
+.desc-feed:hover {
+	transition: 1.0s;
+	opacity: 0.8;
 	cursor: pointer;
 }
 
-/* Footer */
-footer.page-footer {
-	margin: 0;
+/* Content */
+.desc-feed .content-desc {
+	background: red;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.title-feed {
+	font-size: 1.6rem;
+	text-align: center;
+}
+
+.description {
+	font-size: 1.0rem;
+}
+
+/* Content Descrição da empresa */
+#content-desc-empresa {
+	background: none;
+	position: relative;
+	height: 80vh;
+}
+
+/* Texto de descrição */
+#desc-empresa {
+	background: none;
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: justify;
+	font-size: 1.6rem;
+}
+
+/* Content Logotipo de apresentação */
+#content-logo-empresa {
+	background: none;
+	position: relative;
+	height: 80vh;
+}
+
+/* Logotipo de apresentação */
+#logo-empresa {
+	background: none;
+	pointer-events: none;
+	position: absolute;
+	max-width: 100%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* Slider Serviços */
+#slider-servicos {
+	background: none;
+	width: 100%;
+	height: 80vh;
 }
 
 /* Visualização de dispositivos diferentes */
-/* Section in parallax */
 @media only screen and (max-width : 992px) {
 	.parallax-container .section {
 		position: absolute;
 		top: 40%;
 	}
-	#ultimas-noticias {
-		background: red;
-		height: 200px;
+	.title-feed {
+		font-size: 12px;
+	}
+	.description {
+		font-size: 8px;
+	}
+	#desc-empresa {
+		font-size: 10px;
 	}
 }
 
-/* Reajuste do logo */
 @media only screen and (max-width: 500px) {
-	#logo-navbar {
-		font-size: 18px;
+	nav {
+		height: 62px;
+	}
+	.nav-wrapper .brand-logo img {
+		height: 62px;
+	}
+	.title-feed {
+		font-size: 10px;
+	}
+	.description {
+		font-size: 6px;
+	}
+	#desc-empresa {
+		font-size: 5px;
 	}
 }

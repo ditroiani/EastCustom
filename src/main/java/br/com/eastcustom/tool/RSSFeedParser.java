@@ -1,8 +1,5 @@
 package br.com.eastcustom.tool;
 
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,12 +11,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import javax.imageio.ImageIO;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.XMLEvent;
+
+import org.apache.tomcat.util.codec.binary.Base64;
+
+import com.google.common.io.ByteStreams;
 
 import br.com.eastcustom.model.Feed;
 import br.com.eastcustom.model.FeedMessage;
@@ -56,6 +56,7 @@ public class RSSFeedParser {
 		try {
 			// Atributo para verificar header do feed
 			boolean isFeedHeader = true;
+
 			// Setando valores iniciais para as strings
 			String imgDescription = "";
 			String description = "";
@@ -71,17 +72,18 @@ public class RSSFeedParser {
 			XMLInputFactory inputFactory = XMLInputFactory.newFactory();
 
 			// Dados recebidos da stream
-			// Ultilizando BufferedStream por motivos de velocidades
+			// Ultilizando BufferedStream por motivos de performance
 			InputStream in = new BufferedInputStream(read());
 			XMLEventReader eventReader = inputFactory.createXMLEventReader(in);
 
 			// Fazendo a leitura do XML, enquanto houver eventos
 			while (eventReader.hasNext()) {
-				// Recebe apenas marcações do xml
+				// Recebe apenas marcações/tag do xml
 				XMLEvent event = eventReader.nextEvent();
 
+				// Verifica elemento no documento xml
 				if (event.isStartElement()) {
-					// Atributo que receberá nome do elemento.
+					// Atributo que receberá nome do elemento
 					String localPart = event.asStartElement().getName().getLocalPart();
 
 					// Atribui valores
@@ -119,8 +121,26 @@ public class RSSFeedParser {
 							// URL da imagem de descrição
 							String urlImgString = dataDesc.substring(inicio + 5, fim - 7).trim();
 
-							// Convertendo imagem...
-							// ...
+							// ... tratamento da imagem
+							try {
+								// Convertendo URL >
+								// BufferedInputStream(InputStream) > byte[] >
+								// String base64
+								InputStream inImg = new BufferedInputStream(new URL(urlImgString).openStream());
+
+								// Atribuindo valor para feed
+								imgDescription = Base64.encodeBase64String(ByteStreams.toByteArray(inImg));
+
+								// Close InputStream
+								inImg.close();
+							} catch (MalformedURLException e) {
+								e.printStackTrace();
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+						} else {
+							// Setando null, caso não tenha foto
+							imgDescription = null;
 						}
 
 						// Outrocaso, somente adiciona descrição
@@ -130,8 +150,6 @@ public class RSSFeedParser {
 						// Modelando link...
 						String dataLink = getCharacterData(event, eventReader);
 						String linkURL = dataLink.trim();
-
-						System.out.println("URL : " + linkURL);
 
 						// Atribuindo valor de link
 						link = linkURL;
@@ -153,11 +171,12 @@ public class RSSFeedParser {
 						DateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z", Locale.US);
 
 						// Atribui valor de local para data
-						Locale locale = new Locale("pt", "BR");
-
+						// Locale locale = new Locale("pt", "BR");
 						// Atribuindo local para formato de data com local
 						// brasileiro
-						DateFormat sdfBR = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.FULL, locale);
+						// DateFormat sdfBR =
+						// DateFormat.getDateTimeInstance(DateFormat.FULL,
+						// DateFormat.FULL, locale);
 
 						// Objeto que receberá valores de data formatada
 						Date dataObj = null;
@@ -166,7 +185,6 @@ public class RSSFeedParser {
 							// Convertendo para Date...
 							dataObj = sdf.parse(pubDateString);
 
-							// sysout
 							// System.out.println("Formato Original : " +
 							// sdf.parse(pubDateString));
 							// System.out.println("Formato BR : " +
@@ -235,22 +253,5 @@ public class RSSFeedParser {
 			System.out.println("Erro no recebimento da stream da URL !");
 			throw new RuntimeException(e);
 		}
-	}
-
-	// Redimenciona imagem
-	private BufferedImage redimencionar(URL url, Dimension dimension) {
-		// Imagem
-		try {
-			BufferedImage image = ImageIO.read(url);
-			BufferedImage resized = new BufferedImage(dimension.width, dimension.height, BufferedImage.TYPE_INT_ARGB);
-			Graphics2D g = resized.createGraphics();
-			g.drawImage(image, 0, 0, dimension.width, dimension.height, null);
-			g.dispose();
-			return resized;
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		// Retornando...
-		return null;
 	}
 }

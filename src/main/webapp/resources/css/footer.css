@@ -1,0 +1,35 @@
+@CHARSET "ISO-8859-1";
+
+/* Footer */
+footer.page-footer {
+}
+
+/* Contato */
+#content-contato {
+	background: red;
+	display: table;
+	height: 80vh;
+}
+
+/* Mapa Google */
+#content-map {
+	background: green;
+	height: 80vh;
+}
+
+#content-copyright span {
+	color: gray;
+	font-size: 12px;
+}
+
+#footer-developer {
+	padding: 10px;
+	text-align: right;
+	font-size: 12px;
+}
+
+#map {
+	width: 100%;
+	height: 80vh;
+	background-color: grey;
+}

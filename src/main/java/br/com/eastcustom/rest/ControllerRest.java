@@ -14,26 +14,32 @@ import br.com.eastcustom.tool.RSSFeedParser;
  * @author Diego Troiani Rodrigues
  * 
  * CD : Classe dedicada para requisições rest, de forma "geral".
- * LM : 16/09/2017
+ * LM : 02/03/2018
  * OBS : *.
  */
 @RestController
 public class ControllerRest {
-	// Atributos
-
 	// Feed G1.com
 	@RequestMapping(value = "noticiasG1", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Feed> noticias() {
 		try {
+			// System.out.println("INICIO - " + new
+			// Date(System.currentTimeMillis()));
+
 			// RSS
 			RSSFeedParser parser = new RSSFeedParser("http://pox.globo.com/rss/g1/carros/");
+
+			// Converte e atribui valores
 			Feed feed = parser.readFeed();
 
 			// Retornando feed
-			return ResponseEntity.ok(feed);
+			return new ResponseEntity<Feed>(feed, HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<Feed>(HttpStatus.INTERNAL_SERVER_ERROR);
+		} finally {
+			// System.out.println("FIM - " + new
+			// Date(System.currentTimeMillis()));
 		}
 	}
 }

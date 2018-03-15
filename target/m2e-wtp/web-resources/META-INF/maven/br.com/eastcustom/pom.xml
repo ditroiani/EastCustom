@@ -73,6 +73,13 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.5</version>
 		</dependency>
+
+		<!-- Use for ByteStream -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>23.6-jre</version>
+		</dependency>
 	</dependencies>
 
 	<!-- Build -->
