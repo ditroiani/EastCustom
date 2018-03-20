@@ -1,10 +1,12 @@
-// Inicializações de ferramentas
-$('.parallax').parallax();
-$('.carousel.carousel-slider').carousel({
-	fullWidth : true
+// slider (MaterializeCSS)
+$('.slider').slider({
+	height: '85vh',
+	indicators: false,
+	transition: 800,
+	interval : 8000
 });
 
-// Google Maps
+// map (Google Maps)
 function initMap() {
 	// Coordinates
 	var coordinates = {

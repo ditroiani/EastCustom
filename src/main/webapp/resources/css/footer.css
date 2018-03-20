@@ -7,7 +7,6 @@ footer.page-footer {
 /* Contato */
 #content-contato {
 	background: red;
-	display: table;
 	height: 80vh;
 }
 

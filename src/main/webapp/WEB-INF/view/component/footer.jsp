@@ -13,6 +13,7 @@
 		<!-- Contato -->
 		<div class="col s12 m6 s6">
 			<div id="content-contato">
+				Contato
 			</div>
 		</div>
 
