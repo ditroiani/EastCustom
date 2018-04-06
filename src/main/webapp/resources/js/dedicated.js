@@ -1,28 +1,28 @@
-// slider (MaterializeCSS)
-$('.slider').slider({
-	height: '85vh',
+// welcome slider
+$('#welcome-slider').slider({
 	indicators: false,
-	transition: 800,
+	transition: 1000,
 	interval : 8000
 });
 
 // map (Google Maps)
 function initMap() {
-	// Coordinates
+	// coordinates
 	var coordinates = {
 		lat : -23.5390999,
 		lng : -46.5404946
 	};
 
-	// Map Options
+	// map options
 	var map = new google.maps.Map(document.getElementById('map'), {
 		zoom : 15,
 		center : coordinates,
 	});
 
-	// Mark Options
+	// mark options
 	var marker = new google.maps.Marker({
 		position : coordinates,
 		map : map
 	});
 }
+

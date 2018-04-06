@@ -11,14 +11,13 @@ Author : Diego Troiani Rodrigues
 	- Navbar
 - Main
 	- Slider
-	- Welcome
 	- Promotions
 	- Notices
-	- Who are we?
-	- Business partnerships
+	- Description company
 	- Services
+	- Business partnerships
 - Footer
-	- Contact
+	- Contact and payment
 	- Location
 */
 
@@ -27,9 +26,11 @@ Author : Diego Troiani Rodrigues
 	= = = = = = = = = = = = = = = = = = = =
 */
 :root {
-	--nav-color : rgb(0, 0, 0);
-	--border-caption-content : rgb(0, 0, 0);
-	--font-caption : rgb(33, 33, 33);
+	--nav-color: rgb(0, 0, 0);
+	--border-caption-content: rgb(0, 0, 0);
+	--font-caption: rgb(33, 33, 33);
+	--footer: rgb(66, 66, 66);
+	--footer-copyright: rgb(33, 33, 33);
 }
 
 
@@ -80,12 +81,17 @@ main {
 }
 
 /* slider */
+#welcome-slider .slides{
+	height: 85vh !important;
+}
+
 .slider img{
 	-webkit-filter: grayscale(80%);
 }
 
 .caption {
 	background: rgba(255, 255, 255, 0.8);
+	border-radius: 2px;
 	color: var(--font-caption) !important;
 	padding: 1%;
 	top: 50% !important;
@@ -109,11 +115,6 @@ main {
 	border: 0;
 	height: 1px;
 	width: 60%;
-}
-
-/* welcome */
-#welcome {
-	text-align: center;
 }
 
 /* promotions */
@@ -195,43 +196,62 @@ main {
 	font-size: 1.0rem;
 }
 
-/* who are we */
-#content-desc-empresa {
-	background: none;
+/* description company */
+#desc-company {
 	height: 80vh;
 	position: relative;
 }
 
-#desc-empresa {
-	background: none;
-	font-size: 1.6rem;
+#content-desc-company {
 	left: 50%;
 	position: absolute;
-	text-align: justify;
+	text-align: center;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	width: 100%;
+	width: 90%;
 }
 
-#content-logo-empresa {
-	background: none;
+#logo-desc-company {
 	height: 80vh;
 	position: relative;
 }
 
-#logo-empresa {
-	background: none;
+#logo-desc-company img {
 	left: 50%;
-	max-width: 100%;
-	pointer-events: none;
 	position: absolute;
 	top: 50%;
 	transform: translate(-50%, -50%);
 }
 
 /* services */
-#slider-servicos {
-	background: none;
-	height: 80vh;
-	width: 100%;
+#services-title {
+	margin-bottom: 2%;
+}
+
+/* business partnerships */
+#partnerships-title {
+	margin-bottom: 2%;
+}
+
+/*
+	- FOOTER
+	= = = = = = = = = = = = = = = = = = = =
+*/
+.page-footer {
+	background: var(--footer);
+}
+
+.page-footer .footer-copyright {
+	background: var(--footer-copyright);
+}
+
+/* contact and payment */
+#contact-payment {
+	height: 60vh;
+}
+
+/* location */
+#map {
+	height: 60vh;
+	margin-top: 2%;
 }
