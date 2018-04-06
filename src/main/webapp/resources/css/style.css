@@ -31,6 +31,7 @@ Author : Diego Troiani Rodrigues
 	--font-caption: rgb(33, 33, 33);
 	--footer: rgb(66, 66, 66);
 	--footer-copyright: rgb(33, 33, 33);
+	--developed-by: rgb(94, 94, 94);
 }
 
 
@@ -243,6 +244,14 @@ main {
 
 .page-footer .footer-copyright {
 	background: var(--footer-copyright);
+}
+
+.footer-copyright {
+	font-family: "Roboto", sans serif;
+}
+
+.footer-copyright span {
+	color: var(--developed-by);
 }
 
 /* contact and payment */
