@@ -9,8 +9,8 @@ $('#welcome-slider').slider({
 function initMap() {
 	// coordinates
 	var coordinates = {
-		lat : -23.5390999,
-		lng : -46.5404946
+		lat : -23.5270614,
+		lng : -46.5173345
 	};
 
 	// map options

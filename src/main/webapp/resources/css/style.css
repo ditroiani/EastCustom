@@ -82,6 +82,10 @@ main {
 }
 
 /* slider */
+#welcome-slider {
+	height: 85vh !important;
+}
+
 #welcome-slider .slides{
 	height: 85vh !important;
 }
@@ -108,6 +112,7 @@ main {
 }
 
 .content-caption img {
+	margin-top: 2%;
 	max-width: 18%;
 }
 
@@ -222,6 +227,7 @@ main {
 	position: absolute;
 	top: 50%;
 	transform: translate(-50%, -50%);
+	width: 88%;
 }
 
 /* services */
