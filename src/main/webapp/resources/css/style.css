@@ -26,10 +26,12 @@ Author : Diego Troiani Rodrigues
 	= = = = = = = = = = = = = = = = = = = =
 */
 :root {
-	--nav-color: rgb(0, 0, 0);
+	--primary: rgb(0, 0, 0);
+	--secondary: rgb(66, 66, 66);
 	--border-caption-content: rgb(0, 0, 0);
 	--font-caption: rgb(33, 33, 33);
-	--footer: rgb(66, 66, 66);
+	--title-feed: rgb(245, 245, 245);
+	--link-feed: rgb(239, 83, 80); 
 	--footer-copyright: rgb(33, 33, 33);
 	--developed-by: rgb(94, 94, 94);
 }
@@ -56,7 +58,7 @@ body {
 */
 /* navbar */
 nav {
-	background: var(--nav-color);
+	background: var(--primary);
 	height: 15vh;
 }
 
@@ -87,6 +89,7 @@ main {
 }
 
 #welcome-slider .slides{
+	background: none;
 	height: 85vh !important;
 }
 
@@ -131,31 +134,23 @@ main {
 }
 
 /* notices */
-#notices {
-	background: blue;
-	height: 75vh;
-	width: 100%;
-}
-
 #preloader {
-	display: block;
-	height: 80vh;
-	margin: auto;
+	height: 75vh;
 	position: relative;
 	width: 100%;
 }
 
-#preloader-inner {
+#preloader .progress {
 	left: 50%;
-	position: absolute;
-	text-align: center;
 	top: 50%;
+	position: absolute;
 	transform: translate(-50%, -50%);
+	width: 60%;
 }
 
-#feed-carousel {
+#notices {
 	display: none;
-	height: 80vh;
+	height: 75vh;
 	width: 100%;
 }
 
@@ -167,39 +162,43 @@ main {
 	width: 100%;
 }
 
-.desc-feed {
-	background: black;
+.carousel-item .caption-feed {
+	background: var(--primary);
 	bottom: 0;
-	color: white;
 	display: table;
-	height: 25%;
 	left: 0;
-	padding: 5px;
-	position: absolute;
+	height: 25%;
 	opacity: 0.3;
-	transition: 0.6s;
+	padding: 2%;
+	position: absolute;
+	text-align: center;
+	transition: 0.4s;
 	width: 100%;
 }
 
-.desc-feed:hover {
-	cursor: pointer;
+.carousel-item .caption-feed:hover {
 	opacity: 0.8;
-	transition: 1.0s;
+	transition: 0.6s;
 }
 
-.desc-feed .content-desc {
-	background: red;
-	display: table-cell;
+.caption-feed .title-feed {
+	color: var(--title-feed);
+	display: table-row;
 	vertical-align: middle;
 }
 
-.title-feed {
-	font-size: 1.6rem;
-	text-align: center;
+.caption-feed .link-feed {
+	display: table-row;
 }
 
-.description {
-	font-size: 1.0rem;
+.link-feed a:link {
+	color: white;
+	transition: 0.4s;
+}
+
+.link-feed a:hover {
+	color: var(--link-feed);
+	transition: 0.6s;
 }
 
 /* description company */
@@ -245,7 +244,7 @@ main {
 	= = = = = = = = = = = = = = = = = = = =
 */
 .page-footer {
-	background: var(--footer);
+	background: var(--secondary);
 }
 
 .page-footer .footer-copyright {

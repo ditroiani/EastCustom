@@ -121,11 +121,8 @@ public class RSSFeedParser {
 							// URL da imagem de descrição
 							String urlImgString = dataDesc.substring(inicio + 5, fim - 7).trim();
 
-							// ... tratamento da imagem
 							try {
-								// Convertendo URL >
-								// BufferedInputStream(InputStream) > byte[] >
-								// String base64
+								// URL > byte[] > string base65
 								InputStream inImg = new BufferedInputStream(new URL(urlImgString).openStream());
 
 								// Atribuindo valor para feed
@@ -170,25 +167,12 @@ public class RSSFeedParser {
 						// Transforma e um objeto DateFormat, em locale US
 						DateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z", Locale.US);
 
-						// Atribui valor de local para data
-						// Locale locale = new Locale("pt", "BR");
-						// Atribuindo local para formato de data com local
-						// brasileiro
-						// DateFormat sdfBR =
-						// DateFormat.getDateTimeInstance(DateFormat.FULL,
-						// DateFormat.FULL, locale);
-
 						// Objeto que receberá valores de data formatada
 						Date dataObj = null;
 
 						try {
 							// Convertendo para Date...
 							dataObj = sdf.parse(pubDateString);
-
-							// System.out.println("Formato Original : " +
-							// sdf.parse(pubDateString));
-							// System.out.println("Formato BR : " +
-							// sdfBR.format(dataObj) + "\n");
 						} catch (ParseException e) {
 							e.printStackTrace();
 						}
