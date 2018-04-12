@@ -1,12 +1,16 @@
-// welcome slider
-$('#welcome-slider').slider({
-	indicators: false,
-	transition: 1000,
-	interval : 8000
+// document ready
+$(document).ready(function() {
+	// welcome slider
+	$('#welcome-slider').slider({
+		indicators: false,
+		transition: 1000,
+		interval : 8000
+	});
+	
+	// call notices
+	noticiaG1();
 });
 
-// call function
-noticiaG1();
 
 // notices request
 function noticiaG1() {
@@ -16,7 +20,7 @@ function noticiaG1() {
 		type : "GET",
 		beforeSend : function() {
 			// fadein preloader
-			$('#preloader').fadeIn(4000);
+			$('#preloader').fadeIn(6000);
 		},
 		success : function(feed) {
 			// init carousel
@@ -27,9 +31,9 @@ function noticiaG1() {
 				fullWidth : true
 			});
 
-			// set values
+			// set each valus
 			$.each(feed.messages, function(i, feedMessage) {
-				// feed
+				// fee contentd
 				var feed = document.createElement('div');
 				feed.setAttribute('class', 'carousel-item');
 				
@@ -43,16 +47,24 @@ function noticiaG1() {
 				
 				// caption feed
 				var caption = document.createElement('div');
-				var title = document.createElement('div');
-				var link = document.createElement('div');
+				var contentTitle = document.createElement('div');
+				var contentLink = document.createElement('div');
+				var title = document.createElement('h5');
+				var link = document.createElement('button');
+				
 				caption.setAttribute('class', 'caption-feed');
-				title.setAttribute('class', 'title-feed');
-				link.setAttribute('class', 'link-feed');
-				title.innerHTML = '<h5>' + feedMessage.title + '</h5>';
-				link.innerHTML = '<a href="' + feedMessage.link + 
-								 '" target="_blank">SAIBA MAIS</a>';
-				caption.append(title);
-				caption.append(link);
+				contentTitle.setAttribute('class', 'title-feed');
+				contentLink.setAttribute('class', 'link-feed');
+				title.textContent = feedMessage.title;
+				
+				link.setAttribute('class', 'btn waves-effect red');
+				link.setAttribute("onclick", "openLink('" + feedMessage.link + "');");
+				link.textContent = 'Saiba mais';
+				
+				contentTitle.append(title);
+				contentLink.append(link);
+				caption.append(contentTitle);
+				caption.append(contentLink);
 					
 				// append feed element's
 				feed.append(img);
@@ -82,6 +94,11 @@ function noticiaG1() {
 			Materialize.toast("Ops, houve um problema no feed!", 3000);
 		}
 	});
+}
+
+// open link notice (for browser's support)
+function openLink(link) {
+	window.open(link, '_blank');
 }
 
 // map (Google Maps)

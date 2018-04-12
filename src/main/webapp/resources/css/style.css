@@ -15,9 +15,9 @@ Author : Diego Troiani Rodrigues
 	- Notices
 	- Description company
 	- Services
-	- Business partnerships
+	- Payment
 - Footer
-	- Contact and payment
+	- Contact and business partnerships
 	- Location
 */
 
@@ -135,6 +135,7 @@ main {
 
 /* notices */
 #preloader {
+	display: none;
 	height: 75vh;
 	position: relative;
 	width: 100%;
@@ -191,16 +192,6 @@ main {
 	display: table-row;
 }
 
-.link-feed a:link {
-	color: white;
-	transition: 0.4s;
-}
-
-.link-feed a:hover {
-	color: var(--link-feed);
-	transition: 0.6s;
-}
-
 /* description company */
 #desc-company {
 	height: 80vh;
@@ -234,8 +225,8 @@ main {
 	margin-bottom: 2%;
 }
 
-/* business partnerships */
-#partnerships-title {
+/* payment */
+#payment {
 	margin-bottom: 2%;
 }
 
@@ -259,9 +250,15 @@ main {
 	color: var(--developed-by);
 }
 
-/* contact and payment */
-#contact-payment {
+/* contact and business partnerships */
+#contact-bp {
+	display: table;
 	height: 60vh;
+}
+
+#contact-bp #content {
+	display: table-cell;
+	vertical-align: middle;
 }
 
 /* location */
