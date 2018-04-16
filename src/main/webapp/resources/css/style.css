@@ -27,13 +27,10 @@ Author : Diego Troiani Rodrigues
 */
 :root {
 	--primary: rgb(0, 0, 0);
-	--secondary: rgb(66, 66, 66);
-	--border-caption-content: rgb(0, 0, 0);
-	--font-caption: rgb(33, 33, 33);
+	--secondary: rgb(33, 33, 33);
 	--title-feed: rgb(245, 245, 245);
 	--link-feed: rgb(239, 83, 80); 
-	--footer-copyright: rgb(33, 33, 33);
-	--developed-by: rgb(94, 94, 94);
+	--font-developed-by: rgb(65, 105, 225);
 }
 
 
@@ -65,13 +62,13 @@ nav {
 .nav-wrapper .brand-logo img {
 	height: 15vh;
 	filter: grayscale(75%);
-	opacity: 0.5;
+	opacity: 0.8;
 	transition: 0.6s;
 }
 
 .nav-wrapper .brand-logo img:hover {
 	filter: none;
-	opacity: 0.9;
+	opacity: 1.0;
 	transition: 1.0s;
 }
 
@@ -98,16 +95,16 @@ main {
 }
 
 .caption {
-	background: rgba(255, 255, 255, 0.8);
-	border-radius: 2px;
-	color: var(--font-caption) !important;
+	background: var(--primary);
+	color: white !important;
+	opacity: 0.8 !important;
 	padding: 1%;
 	top: 50% !important;
 	transform: translateY(-50%) !important;
 }
 
 .content-caption {
-	border: 1px solid var(--border-caption-content);
+	border: 1px solid white;
 	border-radius: 2px;
 	height: 100%;
 	text-align: center;
@@ -120,7 +117,7 @@ main {
 }
 
 .content-caption hr {
-	background: var(--font-caption);
+	background: white;
 	border: 0;
 	height: 1px;
 	width: 60%;
@@ -221,8 +218,15 @@ main {
 }
 
 /* services */
+#services {
+	background: var(--primary);
+	box-shadow: 0 1px 4px var(--primary);
+	color: white;
+}
+
 #services .col img {
-	filter: brightness(0.1);
+	filter: brightness(5%);
+	transition: 0.1s;
 }
 
 #services-title {
@@ -269,7 +273,7 @@ main {
 }
 
 .page-footer .footer-copyright {
-	background: var(--footer-copyright);
+	background: var(--primary);
 }
 
 .footer-copyright {
@@ -277,7 +281,15 @@ main {
 }
 
 .footer-copyright span {
-	color: var(--developed-by);
+	color: var(--font-developed-by);
+	filter: brightness(0.6);
+	cursor: context-menu;
+	transition: 0.2s;
+}
+
+.footer-copyright span:hover {
+	filter: brightness(0.9);
+	transition: 0.4s;
 }
 
 /* contact and business partnerships */
@@ -292,7 +304,10 @@ main {
 }
 
 /* location */
-#map {
+#location {
 	height: 60vh;
-	margin-top: 2%;
+}
+
+#map {
+	height: 100%;
 }
