@@ -221,13 +221,8 @@ main {
 }
 
 /* services */
-#services {
-	transition: 0.8s;
-}
-
 #services .col img {
 	filter: brightness(0.1);
-	transition: 0.8s;
 }
 
 #services-title {

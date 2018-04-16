@@ -8,7 +8,7 @@ $(document).ready(function() {
 	});
 	
 	// notices
-	noticiaG1();
+	// noticiaG1();
 });
 
 // notices request
@@ -104,8 +104,8 @@ function openLink(link) {
 function initMap() {
 	// coordinates
 	var coordinates = {
-		lat : -23.5270614,
-		lng : -46.5173345
+		lat : -23.5264934,
+		lng : -46.515319
 	};
 
 	// map options
@@ -124,38 +124,37 @@ function initMap() {
 // effect's
 // services
 var interval;
+var img;
+var count = 0;
 
 $('#services')
 	.mouseenter(function(){
-		var count = 0;
-		var img;
+		// verify content if active
+		if($(this).css('background-color') != 'rgb(0, 0, 0)'){
+			// active
+			$(this).css('background-color', 'var(--primary)');
+			$(this).css('box-shadow', '0 1px 4px var(--primary)');
+			$(this).css('color', 'white');
+		}
 		
-		$('#services').css('background', 'var(--secondary)');
-		$('#services').css('box-shadow', '0 1px 4px var(--primary)');
-		$('#services').css('color', 'white');
-		
-		// light on img
+		// light img
 		if (interval == null){
 			interval = setInterval(function(){
-				if (count > 3){
-					clearInterval(id);
+				if (count > 2){
+					clearInterval(interval);
 				} else if(count == 0){
 					count++;
 					img = $('#services .col img[src="resources/img/mecanica.png"]');
-					img.css('filter', 'brightness(0.8)');
+					img.css('filter', 'brightness(0.9)');
 				} else if(count == 1){
 					count++;
 					img = $('#services .col img[src="resources/img/injecao-eletronica.png"]');
-					img.css('filter', 'brightness(0.8)');
+					img.css('filter', 'brightness(0.9)');
 				} else if(count == 2){
 					count++;
 					img = $('#services .col img[src="resources/img/trans-automatica.png"]');
-					img.css('filter', 'brightness(0.8)');
-				}
+					img.css('filter', 'brightness(0.9)');
+0				}
 			}, 300);
 		}
-	})
-	.mouseleave(function(){
-		// stop effect
-		clearInterval(interval);
 	});
