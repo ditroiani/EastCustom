@@ -221,13 +221,48 @@ main {
 }
 
 /* services */
+#services {
+	transition: 0.8s;
+}
+
+#services .col img {
+	filter: brightness(0.1);
+	transition: 0.8s;
+}
+
 #services-title {
-	margin-bottom: 2%;
+	margin-bottom: 4%;
 }
 
 /* payment */
-#payment {
-	margin-bottom: 2%;
+#title-payment {
+	margin: 2% 0 2%;
+}
+
+#content-flag-payment {
+	position: relative;
+	height: 55vh;
+}
+
+#content-flag-payment img {
+	left: 50%;
+	top: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 94%;
+}
+
+#content-text-payment {
+	position: relative;
+	height: 55vh;	
+}
+
+#content-text-payment #text-payment {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 94%;
 }
 
 /*
