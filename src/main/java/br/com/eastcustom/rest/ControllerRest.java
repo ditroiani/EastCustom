@@ -23,9 +23,6 @@ public class ControllerRest {
 	@RequestMapping(value = "noticiasG1", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Feed> noticias() {
 		try {
-			// System.out.println("INICIO - " + new
-			// Date(System.currentTimeMillis()));
-
 			// RSS
 			RSSFeedParser parser = new RSSFeedParser("http://pox.globo.com/rss/g1/carros/");
 
@@ -38,8 +35,7 @@ public class ControllerRest {
 			e.printStackTrace();
 			return new ResponseEntity<Feed>(HttpStatus.INTERNAL_SERVER_ERROR);
 		} finally {
-			// System.out.println("FIM - " + new
-			// Date(System.currentTimeMillis()));
+			// ...
 		}
 	}
 }

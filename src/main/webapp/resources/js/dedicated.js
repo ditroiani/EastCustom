@@ -1,12 +1,5 @@
 // document ready
 $(document).ready(function() {
-	// welcome slider
-	$('#welcome-slider').slider({
-		indicators: false,
-		transition: 1000,
-		interval : 8000
-	});
-	
 	// notices
 	// noticiaG1();
 });
@@ -30,9 +23,9 @@ function noticiaG1() {
 				fullWidth : true
 			});
 
-			// set each valus
+			// set each values
 			$.each(feed.messages, function(i, feedMessage) {
-				// fee contentd
+				// feed content
 				var feed = document.createElement('div');
 				feed.setAttribute('class', 'carousel-item');
 				

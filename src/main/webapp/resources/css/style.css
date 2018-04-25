@@ -56,20 +56,23 @@ body {
 /* navbar */
 nav {
 	background: var(--primary);
+	box-shadow: none;
+	position: relative;
 	height: 15vh;
+	text-align: center;
+	-webkit-box-shadow: none;
 }
 
-.nav-wrapper .brand-logo img {
-	height: 15vh;
-	filter: grayscale(75%);
-	opacity: 0.8;
-	transition: 0.6s;
+nav a img {
+	background: var(--primary);
+	height: 100%;
+	opacity: 0.6;
+	transition: 0.4s;
 }
 
-.nav-wrapper .brand-logo img:hover {
-	filter: none;
-	opacity: 1.0;
-	transition: 1.0s;
+nav a img:hover {
+	opacity: 0.9;
+	transition: 0.8s;
 }
 
 /*
@@ -80,53 +83,100 @@ main {
 	flex: 1 0 auto;
 }
 
-/* slider */
-#welcome-slider {
-	height: 85vh !important;
+/* slide */
+.slideshow {
+	height: 85vh;
+	width: 100%;
 }
 
-#welcome-slider .slides{
-	background: none;
-	height: 85vh !important;
-}
-
-.slider img{
-	-webkit-filter: grayscale(80%);
-}
-
-.caption {
-	background: var(--primary);
-	color: white !important;
-	opacity: 0.8 !important;
-	padding: 1%;
-	top: 50% !important;
-	transform: translateY(-50%) !important;
-}
-
-.content-caption {
-	border: 1px solid white;
-	border-radius: 2px;
+.slide-content {
+	display: none;
 	height: 100%;
-	text-align: center;
 	overflow: hidden;
+	position: relative;
+	width: 100%;
 }
 
-.content-caption img {
-	margin-top: 2%;
-	max-width: 18%;
+.slide-content img {
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	-webkit-filter: grayscale(75%);
+	width: 100%;
 }
 
-.content-caption hr {
-	background: white;
-	border: 0;
-	height: 1px;
-	width: 60%;
+.caption-container {
+	background: blue;
+	display: flex;
+	flex-direction: column;
+	height: 75%;
+	left: 50%;
+	opacity: 0.9;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	width: 50%;
+}
+
+@keyframes captionOne {
+	0% {
+		display: none;
+		left: 0;
+		opacity: 0;
+	}
+	30% {
+		display: flex;
+		opacity: 0;
+	}
+	100% {
+		left: 50%;
+		opacity: 0.9;
+	}
+}
+
+@keyframes captionTwo {
+	0% {
+		display: none;
+		top: 0;
+		opacity: 0;
+	}
+	50% {
+		display: flex;
+		opacity: 0;
+	}
+	100% {
+		top: 50%;
+		opacity: 0.9;
+	}
 }
 
 /* promotions */
 #promotions {
-	background: red;
 	height: 75vh;
+	position: relative;
+	width: 100%;
+}
+
+#promotions img {
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	width: 100%;
+}
+
+#promotions .caption {
+	background: var(--primary);
+	height: 100%;
+	opacity: 0.7;
+	padding: 4%;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+#promotions .caption .content {
+	background: red;
+	height: 100%;
 	width: 100%;
 }
 

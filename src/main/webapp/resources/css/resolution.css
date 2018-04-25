@@ -1,36 +1,15 @@
 @CHARSET "utf-8";
 
+/*
+	Author: Diego Troiani
+	Obs: file for ajust element's in different media size
+*/
+
 /* Visualização de dispositivos diferentes */
 @media only screen and (max-width : 992px) {
-	.parallax-container .section {
-		position: absolute;
-		top: 40%;
-	}
-	.title-feed {
-		font-size: 12px;
-	}
-	.description {
-		font-size: 8px;
-	}
-	#desc-empresa {
-		font-size: 10px;
-	}
+
 }
 
 @media only screen and (max-width: 500px) {
-	nav {
-		height: 62px;
-	}
-	.nav-wrapper .brand-logo img {
-		height: 62px;
-	}
-	.title-feed {
-		font-size: 10px;
-	}
-	.description {
-		font-size: 6px;
-	}
-	#desc-empresa {
-		font-size: 5px;
-	}
+
 }
