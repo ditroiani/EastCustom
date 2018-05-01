@@ -88,7 +88,7 @@ function noticiaG1() {
 	});
 }
 
-// open link notice (for browser's support)
+// link notice (for browser's support)
 function openLink(link) {
 	window.open(link, '_blank');
 }
@@ -113,40 +113,3 @@ function initMap() {
 		map : map
 	});
 }
-
-// effect's
-// services
-var interval;
-var img;
-var count = 0;
-
-$('#services')
-	.mouseenter(function(){
-		// light img
-		if (interval == null){
-			interval = setInterval(function(){
-				if(count == 0){
-					count++;
-					img = $('#services .col img[src="resources/img/mecanica.png"]');
-					img.css('filter', 'brightness(90%)');
-				} else if(count == 1){
-					count++;
-					img = $('#services .col img[src="resources/img/injecao-eletronica.png"]');
-					img.css('filter', 'brightness(90%)');
-				} else if(count == 2){
-					count++;
-					img = $('#services .col img[src="resources/img/trans-automatica.png"]');
-					img.css('filter', 'brightness(90%)');
-				} else if(count == 3){
-					count++;
-					img = $('#services .col img');
-					img.css('filter', 'brightness(5%)');
-				} else if (count == 4){
-					count++;
-					img.css('filter', 'brightness(90%)');
-				} else if (count > 4){
-					clearInterval(interval);
-				}
-			}, 400);
-		}
-	});

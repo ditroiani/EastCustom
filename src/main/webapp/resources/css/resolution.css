@@ -7,9 +7,11 @@
 
 /* Visualização de dispositivos diferentes */
 @media only screen and (max-width : 992px) {
-
+	.caption-text section h3{
+		font-size: 0.8rem;
+	}
 }
 
 @media only screen and (max-width: 500px) {
-
+	
 }
