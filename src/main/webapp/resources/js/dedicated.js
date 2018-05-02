@@ -1,5 +1,15 @@
 // document ready
 $(document).ready(function() {
+	// promotions
+	var month = ['Janeiro', 'Fevereiro', 'Março',
+		'Abril', 'Maio', 'Junho', 'Julho',
+		'Agosto', 'Setembro', 'Outubro',
+		'Novembro', 'Dezembro'];
+	var textMonth = document.getElementById('month-promotion');
+	textMonth.appendChild(document.createTextNode(month[
+		new Date().getMonth()
+	].toUpperCase()));
+	
 	// notices
 	// noticiaG1();
 });

@@ -5,13 +5,71 @@
 	Obs: file for ajust element's in different media size
 */
 
-/* Visualização de dispositivos diferentes */
+/*
+* CONTENT SUMMARY *
+	- slide
+	- promotions
+	- notices
+	- desc company
+	- payment
+*/
+
+/* MAX-WIDTH: 992px */
 @media only screen and (max-width : 992px) {
-	.caption-text section h3{
-		font-size: 0.8rem;
+	/*
+		- slide
+		= = = = = = = = = = = = = = = = = = = =
+	*/
+	.caption-text section h2{
+		font-size: 2.2rem;
+	}
+	.caption-text section h5{
+		font-size: 1.5rem;
+	}
+	
+	/*
+		- desc company
+		= = = = = = = = = = = = = = = = = = = =
+	*/
+	#content-desc-company p {
+		font-size: 1.0rem;
+	}
+	
+	/*
+		- payment
+		= = = = = = = = = = = = = = = = = = = =
+	*/
+	#content-text-payment p {
+		font-size: 1.0rem;
 	}
 }
 
+/* MAX-WIDTH: 500px */
 @media only screen and (max-width: 500px) {
+	/*
+		- slide
+		= = = = = = = = = = = = = = = = = = = =
+	*/
+	.caption-text section h2{
+		font-size: 2.2rem;
+	}
+	.caption-text section h5{
+		font-size: 1.5rem;
+	}
 	
+	/*
+		- desc company
+		= = = = = = = = = = = = = = = = = = = =
+	*/
+	#content-desc-company p {
+		font-size: 1.0rem;
+	}
+	
+	/*
+		- payment
+		= = = = = = = = = = = = = = = = = = = =
+	*/
+	#content-text-payment p {
+		font-size: 1.0rem;
+	}
 }
