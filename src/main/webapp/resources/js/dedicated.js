@@ -11,7 +11,7 @@ $(document).ready(function() {
 	].toUpperCase()));
 	
 	// notices
-	// noticiaG1();
+	noticiaG1();
 });
 
 // notices request

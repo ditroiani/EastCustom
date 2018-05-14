@@ -28,6 +28,7 @@ Author : Diego Troiani Rodrigues
 :root {
 	--primary: rgb(0, 0, 0);
 	--secondary: rgb(33, 33, 33);
+	--sticker: rgb(244, 67, 54);
 	--title-feed: rgb(245, 245, 245);
 	--link-feed: rgb(239, 83, 80); 
 	--font-developed-by: rgb(65, 105, 225);
@@ -135,17 +136,24 @@ main {
 }
 
 .caption-container .caption-text {
-	border-top: 2px solid white;
-	border-bottom: 2px solid white;
+	border-left: 2px solid white;
+	border-right: 2px solid white;
+	color: white;
 	display: flex;
 	flex-direction: column;	
 	height: 60%;
 	justify-content: center;
+	transition: 0.4s;
 	width: 70%;
 }
 
+.caption-container .caption-text:hover {
+	background: white;
+	color: var(--primary);
+	transition: 0.6s;
+}
+
 .caption-text section {
-	color: white;
 	text-align: center;
 }
 
@@ -154,48 +162,53 @@ main {
 	font-family: 'Playfair Display', serif;
 }
 
-@keyframes captionAnimation {
-	0% {
-		display: none;
-		opacity: 0;
-	}
-	50% {
-		display: flex;
-		opacity: 0;
-	}
-	100% {
-		opacity: 0.7;
-	}
-}
-
 /* promotions */
-#promotions {
+#promotion {
+	filter: grayscale(75%);
 	height: 75vh;
 	position: relative;
+	transition: 0.4s;
 	width: 100%;
 }
 
-#promotions img {
+#promotion:hover {
+	filter: grayscale(0);
+	transition: 0.6s;
+}
+
+#promotion img {
 	height: 100%;
 	object-fit: cover;
 	object-position: center;
 	width: 100%;
 }
 
-#promotions .caption {
-	background: var(--primary);
-	height: 100%;
-	opacity: 0.7;
-	padding: 4%;
+#promotion .overlay-promotion {
+	background: black;
+	color: #ffeb3b;
 	position: absolute;
-	top: 0;
 	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	padding: 4%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	transition: 0.4s;
 }
 
-#promotions .caption .content {
-	background: red;
-	height: 100%;
-	width: 100%;
+#promotion .overlay-promotion h5 {
+	border-top: 2px dashed white;
+	border-bottom: 2px dashed white;
+	color: white;
+	padding: 2%;
+}
+
+#promotion .overlay-promotion:hover {
+	opacity: 0.8;
+	transition: 0.6s;
 }
 
 /* notices */

@@ -7,10 +7,12 @@
 	Summary
 	- fade
 	- slide
+	- promotions
 	- services
 */
 
 // fade
+// = = = = = = = = = = = = = = = = = = = =
 function fade(id, time, ini, fin) {
 	var target = document.getElementsByClassName(id);
 	var alpha = ini;
@@ -56,6 +58,7 @@ function fadeOut(id, time){
 }
 
 // - slide
+// = = = = = = = = = = = = = = = = = = = =
 var slideIndex = 0;
 showSlides();
 
@@ -89,7 +92,8 @@ function showSlides(){
 	setTimeout(showSlides, 8000);
 }
 
-//services
+// - services
+// = = = = = = = = = = = = = = = = = = = =
 var interval;
 var img;
 var count = 0;

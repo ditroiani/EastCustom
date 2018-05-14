@@ -1,0 +1,30 @@
+body {
+	background-image: url("../img/background-login-admin.jpg");
+	font-family: 'Raleway', sans-serif;
+	height: 100vh;
+	margin: 0;
+	overflow: hidden;
+	paddin: 0;
+}
+
+.container {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+	width: 100%;
+}
+
+.container .col-logo {
+	opacity: 0.6;
+	height: 40%;
+	background: blue;
+}
+
+.container .col-form {
+	opacity: 0.6;
+	height: 40%;
+	background: red;
+}
+
