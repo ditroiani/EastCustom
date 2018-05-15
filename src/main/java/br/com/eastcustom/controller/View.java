@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 /*
  * @author Diego Troiani Rodrigues
  * 
- * CD : Classe dedicada para requisições de views.
+ * CD : Classe dedicada para requisiÃ§Ãµes de views.
  * LM : 09/05/2018
  * OBS : *.
  */
@@ -16,15 +16,13 @@ public class View {
 	// Administrador
 	@RequestMapping(value="admin")
 	public ModelAndView admin(ModelAndView mav){
-		// Atribui view 
 		mav.setViewName("view/admin.html");
 		return mav;
 	}
 	
-	// Página inicial
-	@RequestMapping(value = "index")
+	// Index
+	@RequestMapping(value = "/")
 	public ModelAndView index(ModelAndView mav) {
-		// Atribuindo view
 		mav.setViewName("view/index.html");
 		return mav;
 	}
