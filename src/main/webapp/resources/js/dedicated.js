@@ -29,7 +29,7 @@ function noticiaG1() {
 			var slider = $('#notices').carousel();
 
 			// config carousel
-			$('.carousel.carousel-slider').carousel({
+			$('.carousel .carousel-slider').carousel({
 				fullWidth : true
 			});
 
@@ -59,9 +59,9 @@ function noticiaG1() {
 				contentLink.setAttribute('class', 'link-feed');
 				title.textContent = feedMessage.title;
 				
-				link.setAttribute('class', 'btn waves-effect red');
+				link.setAttribute("class", "btn waves-effect red");
 				link.setAttribute("onclick", "openLink('" + feedMessage.link + "');");
-				link.textContent = 'Saiba mais';
+				link.textContent = "Saiba mais";
 				
 				contentTitle.append(title);
 				contentLink.append(link);
@@ -83,14 +83,14 @@ function noticiaG1() {
 				slider.removeClass('initialized');
 			}
 
-			// hide preloader
+			// hide preloader and show notices
 			$('#preloader').hide();
-
-			// show feed carousel
 			$('#notices').fadeIn(4000);
-
+			
 			// reinit carousel
-			slider.carousel();
+			slider.carousel({
+				fullWidth : true
+			});
 		},
 		error : function(e) {
 			Materialize.toast("Ops, houve um problema no feed!", 3000);
@@ -100,7 +100,7 @@ function noticiaG1() {
 
 // link notice (for browser's support)
 function openLink(link) {
-	window.open(link, '_blank');
+	window.open(link, '_system');
 }
 
 // map (Google Maps)

@@ -5,15 +5,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /*
- * @author Diego Troiani Rodrigues
+ * @author Diego Troiani
  * 
- * CD : Classe dedicada para requisições de views.
- * LM : 09/05/2018
- * OBS : *.
+ * Description : Class dedicated for requisitions views.
+ * Last modified : 22/05/2018.
+ * Obs : *.
  */
 @Controller
 public class View {
-	// Administrador
+	// Administrator
 	@RequestMapping(value="admin")
 	public ModelAndView admin(ModelAndView mav){
 		mav.setViewName("view/admin.html");

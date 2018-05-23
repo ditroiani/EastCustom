@@ -11,11 +11,11 @@ import br.com.eastcustom.model.Feed;
 import br.com.eastcustom.tool.RSSFeedParser;
 
 /*
- * @author Diego Troiani Rodrigues
+ * @author Diego Troiani
  * 
- * CD : Classe dedicada para requisições rest, de forma "geral".
- * LM : 02/03/2018
- * OBS : *.
+ * Description : Class for requisitions type REST.
+ * Last modified : 22/05/2018.
+ * Obs : *.
  */
 @RestController
 public class ControllerRest {
@@ -23,19 +23,14 @@ public class ControllerRest {
 	@RequestMapping(value = "noticiasG1", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Feed> noticias() {
 		try {
-			// RSS
 			RSSFeedParser parser = new RSSFeedParser("http://pox.globo.com/rss/g1/carros/");
-
-			// Converte e atribui valores
 			Feed feed = parser.readFeed();
 
-			// Retornando feed
 			return new ResponseEntity<Feed>(feed, HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
+			
 			return new ResponseEntity<Feed>(HttpStatus.INTERNAL_SERVER_ERROR);
-		} finally {
-			// ...
 		}
 	}
 }

@@ -30,7 +30,6 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-
 		<!-- Spring MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>

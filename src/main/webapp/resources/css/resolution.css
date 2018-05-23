@@ -28,6 +28,14 @@
 	}
 	
 	/*
+		- notices
+		= = = = = = = = = = = = = = = = = = = =
+	*/
+	.caption-feed h5 {
+		font-size: 1.0rem;
+	}
+	
+	/*
 		- desc company
 		= = = = = = = = = = = = = = = = = = = =
 	*/
@@ -55,6 +63,14 @@
 	}
 	.caption-text section h5{
 		font-size: 1.5rem;
+	}
+	
+	/*
+		- notices
+		= = = = = = = = = = = = = = = = = = = =
+	*/
+	.caption-feed h5 {
+		font-size: 1.0rem;
 	}
 	
 	/*

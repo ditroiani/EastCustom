@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * Armazena uma mensagem RSS
+ * @author Diego Troiani
+ * 
+ * Description: Class for group of feed messages.
+ * Last modified: 22/05/2018.
+ * Obs: *.
  */
 public class Feed {
-	// Atributos
 	private final String title;
 	private final String link;
 	private final String description;
@@ -15,7 +18,6 @@ public class Feed {
 	private final String copyright;
 	private final List<FeedMessage> messages = new ArrayList<FeedMessage>();
 
-	// Construtor
 	public Feed(String title, String link, String description, String language, String copyright) {
 		this.title = title;
 		this.link = link;

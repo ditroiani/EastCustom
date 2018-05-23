@@ -1,10 +1,13 @@
 package br.com.eastcustom.model;
 
 /*
- * Representa uma mensagem do Feed
+ * @author Diego Troiani
+ * 
+ * Description: Class for one feed message.
+ * Last modified: 22/05/2018.
+ * Obs: *.
  */
 public class FeedMessage {
-	// Atributos
 	private String title;
 	private String description;
 	private String link;
@@ -13,7 +16,6 @@ public class FeedMessage {
 	private String pubDate;
 	private String imgDescription;
 
-	// Getters e Setters
 	public String getTitle() {
 		return title;
 	}
