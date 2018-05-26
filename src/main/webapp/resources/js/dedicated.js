@@ -6,9 +6,9 @@ $(document).ready(function() {
 		'Agosto', 'Setembro', 'Outubro',
 		'Novembro', 'Dezembro'];
 	var textMonth = document.getElementById('month-promotion');
-	textMonth.appendChild(document.createTextNode(month[
-		new Date().getMonth()
-	].toUpperCase()));
+	// textMonth.appendChild(document.createTextNode(month[
+	//	new Date().getMonth()
+	// ].toUpperCase()));
 	
 	// notices
 	noticiaG1();
@@ -26,19 +26,28 @@ function noticiaG1() {
 		},
 		success : function(feed) {
 			// init carousel
-			var slider = $('#notices').carousel();
-
-			// config carousel
-			$('.carousel .carousel-slider').carousel({
+			var slider = $('.notices').carousel({
 				fullWidth : true
 			});
-
-			// set each values
+			
+			// set each item of carousel
 			$.each(feed.messages, function(i, feedMessage) {
+				// message feed
+				if (i == 0) {
+					var messageFeed = document.createElement('div');
+					var titleMsgFeed = document.createElement('h4');
+					
+					messageFeed.setAttribute('class', 'carousel-item message-feed');
+					titleMsgFeed.appendChild(document.createTextNode('Mundo Automobilístico'));
+					
+					messageFeed.append(titleMsgFeed);
+					slider.append(messageFeed);
+				}
+				
 				// feed content
 				var feed = document.createElement('div');
 				feed.setAttribute('class', 'carousel-item');
-				
+
 				// image feed
 				var img = document.createElement('img');
 				img.setAttribute('class', 'img-feed');
@@ -52,7 +61,7 @@ function noticiaG1() {
 				var contentTitle = document.createElement('div');
 				var contentLink = document.createElement('div');
 				var title = document.createElement('h5');
-				var link = document.createElement('button');
+				var link = document.createElement('a');
 				
 				caption.setAttribute('class', 'caption-feed');
 				contentTitle.setAttribute('class', 'title-feed');
@@ -60,8 +69,8 @@ function noticiaG1() {
 				title.textContent = feedMessage.title;
 				
 				link.setAttribute("class", "btn waves-effect red");
-				link.setAttribute("onclick", "openLink('" + feedMessage.link + "');");
 				link.textContent = "Saiba mais";
+				link.setAttribute("onclick", "openLink('" + feedMessage.link + "');");
 				
 				contentTitle.append(title);
 				contentLink.append(link);
@@ -74,6 +83,9 @@ function noticiaG1() {
 				
 				// add element in carousel
 				slider.append(feed);
+				
+				// count
+				i++;
 			});
 
 			// Remove a classe de inicialização que evita que o carousel
@@ -85,7 +97,7 @@ function noticiaG1() {
 
 			// hide preloader and show notices
 			$('#preloader').hide();
-			$('#notices').fadeIn(4000);
+			$('.notices').fadeIn(4000);
 			
 			// reinit carousel
 			slider.carousel({

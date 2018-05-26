@@ -8,6 +8,7 @@
 	- fade
 	- slide
 	- promotions
+	- desc company
 	- services
 */
 
@@ -92,39 +93,110 @@ function showSlides(){
 	setTimeout(showSlides, 8000);
 }
 
+// - desc company
+// = = = = = = = = = = = = = = = = = = = =
+var intervalDescCompany;
+
+$('.company').mouseenter(function(){
+	// change word's
+	if(intervalDescCompany == null) {
+		var company = $('.company');
+		var word = [
+			$('.w0'),
+			$('.w1'),
+			$('.w2'),
+			$('.w3'),
+			$('.w4'),
+			$('.w5'),
+			$('.w6'),
+			$('.w7')];
+		var count = 0;
+		
+		// change background
+		company.css('background','var(--primary)');
+		company.css('color','white');
+		company.css('transition','0.6s');
+		
+		// change each word color
+		intervalDescCompany = setInterval(function() {
+			if (word[count]) {
+				var color = [
+					'rgb(255, 152, 0)',
+					'rgb(38, 38, 123)',
+					'rgb(255, 235, 59)',
+					'rgb(255, 235, 59)',
+					'rgb(255, 235, 59)',
+					'rgb(0, 156, 59)',
+					'rgb(0, 40, 104)',
+					'rgb(213, 0, 0)'
+				];
+				
+				if (word[count] == word[word.length - 1]){
+					var lastP = [
+						'E ', 'é ', 'com ', 'enorme ',
+						'prazer, ', 'que ', '<b>AGRADEÇEMOS ',
+						'À ', 'VOCÊ</b> ', 'por ', 'fazer ',
+						'parte ', 'de ', 'nosso ', 'trabalho!'
+					];
+					var countWord = 0;
+					word[count].css('transition', '0.4s');
+
+					var intervalLastP = setInterval(function() {
+						if (lastP[countWord]) {
+							console.log(lastP[countWord]);
+							console.log(word[count].value);
+							countWord++;
+						} else {
+							clearInterval(intervalLastP);
+						}
+					}, 500);
+				} else {
+					// change color
+					word[count].css('color', color[count]);
+					word[count].css('transition', '0.4s');
+				}
+				
+				count++;
+			} else {
+				clearInterval(intervalDescCompany);
+			}
+		}, 600);
+	}
+});
+
 // - services
 // = = = = = = = = = = = = = = = = = = = =
-var interval;
-var img;
-var count = 0;
+var intervalService;
 
-$('#services')
-	.mouseenter(function(){
-		// light img
-		if (interval == null){
-			interval = setInterval(function(){
-				if(count == 0){
-					count++;
-					img = $('#services .col img[src="resources/img/mecanica.png"]');
-					img.css('filter', 'brightness(90%)');
-				} else if(count == 1){
-					count++;
-					img = $('#services .col img[src="resources/img/injecao-eletronica.png"]');
-					img.css('filter', 'brightness(90%)');
-				} else if(count == 2){
-					count++;
-					img = $('#services .col img[src="resources/img/trans-automatica.png"]');
-					img.css('filter', 'brightness(90%)');
-				} else if(count == 3){
-					count++;
-					img = $('#services .col img');
-					img.css('filter', 'brightness(5%)');
-				} else if (count == 4){
-					count++;
-					img.css('filter', 'brightness(90%)');
-				} else if (count > 4){
-					clearInterval(interval);
-				}
-			}, 400);
-		}
-	});
+$('.services').mouseenter(function(){
+	// light img
+	if (intervalService == null){
+		var img;
+		var count = 0;
+		
+		intervalService = setInterval(function(){
+			if(count == 0){
+				count++;
+				img = $('.services .col img[src="resources/img/mecanica.png"]');
+				img.css('filter', 'brightness(90%)');
+			} else if(count == 1){
+				count++;
+				img = $('.services .col img[src="resources/img/injecao-eletronica.png"]');
+				img.css('filter', 'brightness(90%)');
+			} else if(count == 2){
+				count++;
+				img = $('.services .col img[src="resources/img/trans-automatica.png"]');
+				img.css('filter', 'brightness(90%)');
+			} else if(count == 3){
+				count++;
+				img = $('.services .col img');
+				img.css('filter', 'brightness(5%)');
+			} else if (count == 4){
+				count++;
+				img.css('filter', 'brightness(90%)');
+			} else if (count > 4){
+				clearInterval(intervalService);
+			}
+		}, 400);
+	}
+});

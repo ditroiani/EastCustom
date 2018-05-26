@@ -32,14 +32,14 @@
 		= = = = = = = = = = = = = = = = = = = =
 	*/
 	.caption-feed h5 {
-		font-size: 1.0rem;
+		font-size: 1.3rem;
 	}
 	
 	/*
 		- desc company
 		= = = = = = = = = = = = = = = = = = = =
 	*/
-	#content-desc-company p {
+	.content-desc-company p {
 		font-size: 1.0rem;
 	}
 	
@@ -70,14 +70,14 @@
 		= = = = = = = = = = = = = = = = = = = =
 	*/
 	.caption-feed h5 {
-		font-size: 1.0rem;
+		font-size: 1.3rem;
 	}
 	
 	/*
 		- desc company
 		= = = = = = = = = = = = = = = = = = = =
 	*/
-	#content-desc-company p {
+	.content-desc-company p {
 		font-size: 0.8rem;
 	}
 	

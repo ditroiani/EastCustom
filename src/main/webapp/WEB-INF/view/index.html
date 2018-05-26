@@ -80,22 +80,18 @@
 			</div>
 	
 			<!-- welcome text -->
-			<div class="row">
-				<div class="col s12 m12 l12 center">
-					<h4>Seja bem-vindo</h4>
-					<div class="divider"></div>
+			<div class="row content-welcome">
+				<div class="center col s12 m12 l12">
+					<h4 class="welcome-text">Seja bem-vindo</h4>
 				</div>
 			</div>
 			
 			<!-- promotions and notices -->
 			<div class="row">
 				<!-- promotions -->
-				<div class="col s12 m6 l6 center">	
-					<h5>Ofertas</h5>
-					<p id="month-promotion">Todo mês, uma nova oferta - </p>
-					
+				<div class="col s12 m5 l5">	
 					<!-- promotions -->
-					<div id="promotion">
+					<div id="promotion" class="center">
 						<img alt="Promoção" src="resources/img/promocao.png">
 						<div class="overlay-promotion">
 							<div>
@@ -106,11 +102,16 @@
 					</div>
 				</div>
 				
+				<div class="hide show-on-small">
+					<div class="row">
+						<div class="col s12 m12 l12">
+							<div class="divider"></div>
+						</div>
+					</div>
+				</div>
+				
 				<!-- notices -->
-				<div class="col s12 m6 l6 center">
-					<h5>Mundo automobilístico</h5>
-					<p>G1 AutoEsporte</p>
-					
+				<div class="col s12 m7 l7">
 					<!-- preloader -->
 					<div id="preloader">
 						<div class="progress">
@@ -119,25 +120,26 @@
 					</div>
 					
 					<!-- notices -->
-					<div id="notices" class="carousel carousel-slider"></div>
+					<div class="carousel carousel-slider notices"></div>
 				</div>
 			</div>
 			
 			<!-- description company -->
-			<div class="row">
-				<div id="desc-company" class="col s8 m7 l7">
-					<div id="content-desc-company">
-						<h5>Mas afinal, o que é a East Custom?</h5>
+			<div class="company row">
+				<div class="col s8 m7 l7 desc-company">
+					<div class="content-desc-company">
+						<h5 class="w0">Mas afinal, o que é a East Custom?</h5>
 						<div class="divider"></div>
 						<p>Fundada em 2007 e sediada na Zona Leste de São Paulo, 
-						a <b>East Custom</b> é uma oficina com grande experiência em <b>Mecânica</b>,
-						<b>Injeção Eletrônica</b> e estamos também ingressando o mais rápido possível 
-						em <b>Transmissão Automática</b>.</p>
+						a <span class="w1"><b>East Custom</b></span> é uma oficina com grande experiência 
+						em <span class="w2"><b>Mecânica</b></span>, 
+						<span class="w3"><b>Injeção Eletrônica</b></span> e 
+						estamos também ingressando o mais rápido possível 
+						em <span class="w4"><b>Transmissão Automática</b></span>.</p>
 						<p>Buscamos sempre, por meio de serviços, uma experiência segura, 
 						diferenciada e também uma forma totalmente eficaz para seu veículo, seje
-						<b>nacional</b> ou <b>importado</b>.</p>
-						<p>E é com enorme prazer, que agradeçemos à você 
-						por ser colaborador de nosso trabalho!</p>
+						<span class="w5"><b>nacional</b></span> ou <span class="w6"><b>importado</b></span>.</p>
+						<p class="w7"></p>
 					</div>
 				</div>
 				<div alt="Oficina East Custom" id="logo-desc-company" class="col s4 m5 l5" 
@@ -148,10 +150,9 @@
 			</div>
 			
 			<!-- services -->
-			<div id="services" class="row">
-				<div id="services-title" class="col s12 m12 l12 center">
-					<h5>Serviços</h5>
-					<div class="divider"></div>
+			<div class="row services">
+				<div class="col s12 m12 l12 center">
+					<h5 class="services-title">Serviços</h5>
 				</div>
 				<div class="col s12 m4 l4 center">
 					<img alt="Mecânica" src="resources/img/mecanica.png" class="responsive-img" 

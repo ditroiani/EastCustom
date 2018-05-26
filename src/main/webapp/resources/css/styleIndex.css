@@ -30,8 +30,8 @@ Author : Diego Troiani Rodrigues
 	--secondary: rgb(33, 33, 33);
 	--sticker: rgb(244, 67, 54);
 	--title-feed: rgb(245, 245, 245);
-	--link-feed: rgb(239, 83, 80); 
-	--font-developed-by: rgb(65, 105, 225);
+	--link-feed: rgb(239, 83, 80);
+	--font-developed-by: rgb(3, 169, 244);
 }
 
 
@@ -155,11 +155,50 @@ main {
 
 .caption-text section {
 	text-align: center;
+	cursor: context-menu;
 }
 
 .caption-text section h2 {
 	font-weight: bold;
 	font-family: 'Playfair Display', serif;
+}
+
+/* welcome text */
+.content-welcome {
+	margin-bottom: 0;
+}
+
+.welcome-text {
+	cursor: context-menu;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	text-align: center;
+	transition: 0.4s;
+	opacity: 0.7;
+}
+
+.welcome-text:hover {
+	opacity: 0.9;
+	transition: 0.6s;
+}
+
+.welcome-text::before,
+.welcome-text::after {
+	background-color: var(--primary);
+	content: '\a0';
+	flex-grow: 1;
+	height: 1px;
+	position: relative;
+	top: 0.5em;
+}
+
+.welcome-text::before {
+	margin-right: 2%;
+}
+
+.welcome-text::after {
+	margin-left: 2%;
 }
 
 /* promotions */
@@ -185,7 +224,7 @@ main {
 
 #promotion .overlay-promotion {
 	background: black;
-	color: #ffeb3b;
+	color: #76ff03;
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -227,9 +266,18 @@ main {
 	width: 60%;
 }
 
-#notices {
+.notices {
 	display: none;
 	height: 75vh;
+	width: 100%;
+}
+
+.notices .message-feed {
+	background: red;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
 	width: 100%;
 }
 
@@ -242,11 +290,13 @@ main {
 }
 
 .carousel-item .caption-feed {
+	justify-content: center;
 	background: var(--primary);
 	bottom: 0;
-	display: table;
+	display: flex;
+	flex-direction: column;
 	left: 0;
-	height: 25%;
+	height: 40%;
 	opacity: 0.3;
 	padding: 2%;
 	position: absolute;
@@ -262,21 +312,25 @@ main {
 
 .caption-feed .title-feed {
 	color: var(--title-feed);
-	display: table-row;
-	vertical-align: middle;
 }
 
 .caption-feed .link-feed {
-	display: table-row;
+
 }
 
 /* description company */
-#desc-company {
+.desc-company {
 	height: 70vh;
 	position: relative;
 }
 
-#content-desc-company {
+.company {
+	margin-bottom: 0;
+	transition: 0.4s;
+}
+
+.content-desc-company {
+	cursor: context-menu;
 	left: 50%;
 	position: absolute;
 	text-align: center;
@@ -284,6 +338,7 @@ main {
 	transform: translate(-50%, -50%);
 	width: 90%;
 }
+
 
 #logo-desc-company {
 	height: 70vh;
@@ -299,19 +354,42 @@ main {
 }
 
 /* services */
-#services {
+.services {
 	background: var(--primary);
 	box-shadow: 0 1px 4px var(--primary);
 	color: white;
 }
 
-#services .col img {
-	filter: brightness(5%);
-	transition: 0.1s;
+.services-title {
+	cursor: context-menu;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	text-align: center;
+	margin-bottom: 4%;
 }
 
-#services-title {
-	margin-bottom: 4%;
+.services-title::before,
+.services-title::after {
+	background-color: white;
+	content: '\a0';
+	flex-grow: 1;
+	height: 1px;
+	position: relative;
+	top: 0.5em;
+}
+
+.services-title::before {
+	margin-right: 2%;
+}
+
+.services-title::after {
+	margin-left: 2%;
+}
+
+.services .col img {
+	filter: brightness(5%);
+	transition: 0.1s;
 }
 
 /* payment */
