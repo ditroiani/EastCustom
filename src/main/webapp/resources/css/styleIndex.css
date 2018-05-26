@@ -319,14 +319,14 @@ main {
 }
 
 /* description company */
-.desc-company {
-	height: 70vh;
-	position: relative;
-}
-
 .company {
 	margin-bottom: 0;
 	transition: 0.4s;
+}
+
+.desc-company {
+	height: 70vh;
+	position: relative;
 }
 
 .content-desc-company {
@@ -339,17 +339,20 @@ main {
 	width: 90%;
 }
 
-
-#logo-desc-company {
+.logo-desc-company {
 	height: 70vh;
 	position: relative;
+	transition: 1.0s;
 }
 
-#logo-desc-company img {
+.logo-desc-company img {
+	filter: grayscale(100%);
 	left: 50%;
+	opacity: 0.5;
 	position: absolute;
 	top: 50%;
 	transform: translate(-50%, -50%);
+	transition: 1.2s;
 	width: 88%;
 }
 
@@ -357,6 +360,7 @@ main {
 .services {
 	background: var(--primary);
 	box-shadow: 0 1px 4px var(--primary);
+	cursor: context-menu;
 	color: white;
 }
 
@@ -393,16 +397,20 @@ main {
 }
 
 /* payment */
-#title-payment {
+.payment {
+	cursor: context-menu;
+}
+
+.title-payment {
 	margin: 2% 0 2%;
 }
 
-#content-flag-payment {
+.content-flag-payment {
 	position: relative;
 	height: 55vh;
 }
 
-#content-flag-payment img {
+.content-flag-payment img {
 	left: 50%;
 	top: 50%;
 	position: absolute;
@@ -410,12 +418,12 @@ main {
 	width: 94%;
 }
 
-#content-text-payment {
+.content-text-payment {
 	position: relative;
 	height: 55vh;	
 }
 
-#content-text-payment #text-payment {
+.content-text-payment .text-payment {
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -427,30 +435,6 @@ main {
 	- FOOTER
 	= = = = = = = = = = = = = = = = = = = =
 */
-.page-footer {
-	background: var(--secondary);
-}
-
-.page-footer .footer-copyright {
-	background: var(--primary);
-}
-
-.footer-copyright {
-	font-family: "Roboto", sans serif;
-}
-
-.footer-copyright span {
-	color: var(--font-developed-by);
-	filter: brightness(0.6);
-	cursor: context-menu;
-	transition: 0.2s;
-}
-
-.footer-copyright span:hover {
-	filter: brightness(0.9);
-	transition: 0.4s;
-}
-
 /* contact and business partnerships */
 #contact-bp {
 	display: table;
@@ -458,6 +442,7 @@ main {
 }
 
 #contact-bp #content {
+	cursor: context-menu;
 	display: table-cell;
 	vertical-align: middle;
 }
@@ -469,4 +454,28 @@ main {
 
 #map {
 	height: 100%;
+}
+
+.page-footer {
+	background: var(--secondary);
+}
+
+.page-footer .footer-copyright {
+	background: var(--primary);
+	cursor: context-menu;
+}
+
+.footer-copyright {
+	font-family: "Roboto", sans serif;
+}
+
+.footer-copyright span {
+	color: var(--font-developed-by);
+	filter: brightness(0.6);
+	transition: 0.2s;
+}
+
+.footer-copyright span:hover {
+	filter: brightness(0.9);
+	transition: 0.4s;
 }

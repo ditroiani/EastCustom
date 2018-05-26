@@ -47,7 +47,7 @@
 		- payment
 		= = = = = = = = = = = = = = = = = = = =
 	*/
-	#content-text-payment p {
+	.content-text-payment p {
 		font-size: 1.0rem;
 	}
 }
@@ -85,7 +85,7 @@
 		- payment
 		= = = = = = = = = = = = = = = = = = = =
 	*/
-	#content-text-payment p {
+	.content-text-payment p {
 		font-size: 1.0rem;
 	}
 }

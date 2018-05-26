@@ -114,6 +114,7 @@ $('.company').mouseenter(function(){
 		
 		// change background
 		company.css('background','var(--primary)');
+		company.css('box-shadow', '0 1px 4px var(--primary)');
 		company.css('color','white');
 		company.css('transition','0.6s');
 		
@@ -130,26 +131,33 @@ $('.company').mouseenter(function(){
 					'rgb(0, 40, 104)',
 					'rgb(213, 0, 0)'
 				];
-				
-				if (word[count] == word[word.length - 1]){
+				if (word[count] == word[word.length - 1]) {
 					var lastP = [
 						'E ', 'é ', 'com ', 'enorme ',
-						'prazer, ', 'que ', '<b>AGRADEÇEMOS ',
-						'À ', 'VOCÊ</b> ', 'por ', 'fazer ',
-						'parte ', 'de ', 'nosso ', 'trabalho!'
+						'prazer, ', 'que ', 
+						'<span class="w8"><b>agradecemos à você</b></span> ', 
+						'por ', 'fazer ', 'parte ', 'de ', 'nosso ', 
+						'trabalho!'
 					];
 					var countWord = 0;
-					word[count].css('transition', '0.4s');
-
-					var intervalLastP = setInterval(function() {
-						if (lastP[countWord]) {
-							console.log(lastP[countWord]);
-							console.log(word[count].value);
+					var eachWord = word[count];
+					var intervalEachWord;
+					
+					// set each word in element p
+					intervalEachWord = setInterval(function() {
+						if(countWord <= lastP.length - 1) {
+							// append
+							eachWord.append(lastP[countWord]);
 							countWord++;
 						} else {
-							clearInterval(intervalLastP);
+							// change last word and filter in logo
+							$('.w8').css('transition', '1.2s');
+							$('.w8').css('color', 'red');
+							$('.logo-desc-company img').css('filter', 'grayscale(0)');
+							$('.logo-desc-company img').css('opacity', '0.8');
+							clearInterval(intervalEachWord);
 						}
-					}, 500);
+					}, 250);
 				} else {
 					// change color
 					word[count].css('color', color[count]);
