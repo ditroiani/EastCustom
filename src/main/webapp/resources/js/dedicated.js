@@ -1,3 +1,12 @@
+/*
+ * Author: Diego Troiani Rodrigues
+ * Obs: File dedicated for load elements and functionalities.
+ * 
+ * SUMMARY
+ * - notices
+ * - map with Google
+ */
+
 // document ready
 $(document).ready(function() {
 	// promotions
@@ -11,28 +20,27 @@ $(document).ready(function() {
 	// ].toUpperCase()));
 	
 	// notices
-	noticiaG1();
+	notices();
 });
 
-// notices request
-function noticiaG1() {
+// - notices G1
+// = = = = = = = = = = = = = = = = = = = =
+function notices() {
 	// request
 	$.getJSON({
 		url : "noticiasG1",
 		type : "GET",
 		beforeSend : function() {
 			// fadein preloader
-			$('#preloader').fadeIn(6000);
+			$('.preloader').fadeIn(5000);
 		},
 		success : function(feed) {
 			// init carousel
-			var slider = $('.notices').carousel({
-				fullWidth : true
-			});
+			var slider = $('.notices').carousel();
 			
 			// set each item of carousel
 			$.each(feed.messages, function(i, feedMessage) {
-				// message feed
+				// add message feed to carousel
 				if (i == 0) {
 					var feedMsg = document.createElement('div');
 					var msgContainer = document.createElement('div');
@@ -40,9 +48,11 @@ function noticiaG1() {
 					var titleMsg = document.createElement('h4');
 					var textMsg = document.createElement('p');
 					
+					// set class in containers
 					feedMsg.setAttribute('class','carousel-item msg-feed');
 					msgContainer.setAttribute('class', 'msg-container no-select');
 					
+					// set value in elements
 					imgMsg.setAttribute('alt', 'Globo Auto Esporte');
 					imgMsg.setAttribute('draggable', 'false');
 					imgMsg.setAttribute('src', 'resources/img/logo-auto-esporte.png');
@@ -51,42 +61,43 @@ function noticiaG1() {
 					textMsg.textContent = 
 						'Arraste para o lado e fique por dentro do mundo automobilístico';
 					
+					// append elements in containers
 					msgContainer.append(imgMsg);
 					msgContainer.append(titleMsg);
 					msgContainer.append(textMsg);
 					feedMsg.append(msgContainer);
 					
+					// add item to carousel
 					slider.append(feedMsg);
 				}
 				
-				// feed content
+				// feed
 				var feed = document.createElement('div');
-				feed.setAttribute('class', 'carousel-item');
-
-				// image feed
 				var img = document.createElement('img');
-				img.setAttribute('class', 'img-feed');
-				img.setAttribute('src', (feedMessage.imgDescription != null) ? 
-								'data:image/jpg;base64, ' + feedMessage.imgDescription : 
-								'resources/img/g1-logo.png');
-				img.setAttribute('title', feedMessage.title);
-				
-				// caption feed
 				var caption = document.createElement('div');
 				var contentTitle = document.createElement('div');
 				var contentLink = document.createElement('div');
 				var title = document.createElement('h5');
 				var link = document.createElement('a');
 				
+				// add class to elements
+				feed.setAttribute('class', 'carousel-item');
+				img.setAttribute('class', 'img-feed');
 				caption.setAttribute('class', 'caption-feed');
 				contentTitle.setAttribute('class', 'title-feed');
 				contentLink.setAttribute('class', 'link-feed');
-				title.textContent = feedMessage.title;
-				
 				link.setAttribute("class", "btn waves-effect");
+
+				// set values to elements
+				img.setAttribute('src', (feedMessage.imgDescription != null) ? 
+						'data:image/jpg;base64, ' + feedMessage.imgDescription : 
+						'resources/img/g1-logo.png');
+				img.setAttribute('title', feedMessage.title);
+				title.textContent = feedMessage.title;
 				link.textContent = "Saiba mais";
 				link.setAttribute("onclick", "openLink('" + feedMessage.link + "');");
 				
+				// append elements to containers
 				contentTitle.append(title);
 				contentLink.append(link);
 				caption.append(contentTitle);
@@ -96,41 +107,40 @@ function noticiaG1() {
 				feed.append(img);
 				feed.append(caption)
 				
-				// add element in carousel
+				// add element in carousel and increment count
 				slider.append(feed);
-				
-				// count
 				i++;
 			});
 
-			// Remove a classe de inicialização que evita que o carousel
-			// se inicialize novamente quando não for
-			// necessário
+			// remove init on carousel to prevent reinit when 
+			// it is not necessary
 			if (slider.hasClass('initialized')) {
 				slider.removeClass('initialized');
 			}
 
 			// hide preloader and show notices
-			$('#preloader').hide();
+			$('.preloader').hide();
 			$('.notices').fadeIn(4000);
 			
-			// reinit carousel
+			// reinit carousel for change
 			slider.carousel({
 				fullWidth : true
 			});
 		},
 		error : function(e) {
+			// toast error
 			Materialize.toast("Ops, houve um problema no feed!", 3000);
 		}
 	});
 }
 
-// link notice (for browser's support)
+// link notice
 function openLink(link) {
 	window.open(link, '_system');
 }
 
-// map (Google Maps)
+// - map with Google
+// = = = = = = = = = = = = = = = = = = = =
 function initMap() {
 	// coordinates
 	var coordinates = {

@@ -1,43 +1,40 @@
 @CHARSET "utf-8";
 /*
-Author : Diego Troiani Rodrigues
-*/
+ *	Author : Diego Troiani Rodrigues
+ *
+ *	SUMMARY
+ *	- variables
+ *	- general
+ *	- header
+ *		- navbar
+ *	- main
+ *		- welcome
+ *		- promotions
+ * 		- notices
+ *		- desc company
+ *		- services
+ *		- payment
+ *	- footer
+ *		- contact
+ *		- location
+ */
 
 /*
-* CONTENT SUMMARY *
-- Variables
-- General
-- Header
-	- Navbar
-- Main
-	- Slider
-	- Promotions
-	- Notices
-	- Description company
-	- Services
-	- Payment
-- Footer
-	- Contact and business partnerships
-	- Location
-*/
-
-/*
-	- VARIABLES
+	- variables
 	= = = = = = = = = = = = = = = = = = = =
 */
 :root {
+	--font-developed-by: rgb(3, 169, 244);
+	--gone-color: rgb(168, 0, 0);
+	--link-feed: rgb(239, 83, 80);
 	--primary: rgb(0, 0, 0);
 	--secondary: rgb(33, 33, 33);
 	--sticker: rgb(244, 67, 54);
-	--gone-color: rgb(168, 0, 0);
 	--title-feed: rgb(245, 245, 245);
-	--link-feed: rgb(239, 83, 80);
-	--font-developed-by: rgb(3, 169, 244);
 }
 
-
 /*
-	- GENERAL
+	- general
 	= = = = = = = = = = = = = = = = = = = =
 */
 body {
@@ -46,12 +43,10 @@ body {
 	font-family: 'Raleway', sans-serif;
 	font-size: 16px;
 	min-height: 100vh;
+	max-height: 100vh;
 }
 
-::-webkit-scrollbar {
-	/* width: 0px; */
-}
-
+/* no-select text */
 .no-select {
   -webkit-touch-callout: none; 
     -webkit-user-select: none; 
@@ -62,7 +57,7 @@ body {
 }
 
 /*
-	- HEADER
+	- header
 	= = = = = = = = = = = = = = = = = = = =
 */
 /* navbar */
@@ -88,13 +83,14 @@ nav a img:hover {
 }
 
 /*
-	- MAIN
+	- main
 	= = = = = = = = = = = = = = = = = = = =
 */
 main {
 	flex: 1 0 auto;
 }
 
+/* welcome */
 /* slide */
 .slideshow {
 	height: 85vh;
@@ -172,8 +168,7 @@ main {
 	font-weight: bold;
 	font-family: 'Playfair Display', serif;
 }
-
-/* welcome text */
+ /* text */
 .content-welcome {
 	margin-bottom: 0;
 }
@@ -195,7 +190,7 @@ main {
 
 .welcome-text::before,
 .welcome-text::after {
-	background-color: var(--primary);
+	background-color: #e0e0e0;
 	content: '\a0';
 	flex-grow: 1;
 	height: 1px;
@@ -211,8 +206,22 @@ main {
 	margin-left: 2%;
 }
 
+/* promotions and notices */
+/* mobile title*/ 
+.mobile-title {
+	align-content: center;
+	align-items: center;
+	display: flex;
+	max-height: 10vh;
+	min-height: 10vh;
+}
+
+.mobile-title blockquote {
+	border-left-color: var(--secondary);
+}
+
 /* promotions */
-#promotion {
+.promotion {
 	filter: grayscale(75%);
 	height: 75vh;
 	position: relative;
@@ -220,19 +229,19 @@ main {
 	width: 100%;
 }
 
-#promotion:hover {
+.promotion:hover {
 	filter: grayscale(0);
 	transition: 0.6s;
 }
 
-#promotion img {
+.promotion img {
 	height: 100%;
 	object-fit: cover;
 	object-position: center;
 	width: 100%;
 }
 
-#promotion .overlay-promotion {
+.promotion .overlay-promotion {
 	background: black;
 	color: #76ff03;
 	position: absolute;
@@ -248,27 +257,28 @@ main {
 	transition: 0.4s;
 }
 
-#promotion .overlay-promotion h5 {
+.promotion .overlay-promotion h5 {
 	border-top: 2px dashed white;
 	border-bottom: 2px dashed white;
 	color: white;
 	padding: 2%;
 }
 
-#promotion .overlay-promotion:hover {
+.promotion .overlay-promotion:hover {
 	opacity: 0.8;
 	transition: 0.6s;
 }
 
 /* notices */
-#preloader {
+.preloader {
 	display: none;
 	height: 75vh;
 	position: relative;
 	width: 100%;
 }
 
-#preloader .progress {
+.preloader .progress {
+	background-color: var(--gone-color);
 	left: 50%;
 	top: 50%;
 	position: absolute;
@@ -298,13 +308,13 @@ main {
 }
 
 .msg-container img {
-	height: 20%;
-	margin-bottom: 5%;
+	height: 25%;
+	margin-bottom: 4%;
 	width: auto;
 }
 
-.msg-container h4 {
-	margin: 0;
+.msg-container p {
+	padding: 4%;
 }
 
 .img-feed {
@@ -347,7 +357,7 @@ main {
 /* description company */
 .company {
 	margin-bottom: 0;
-	transition: 0.4s;
+	transition: 0.6s;
 }
 
 .desc-company {
@@ -457,10 +467,10 @@ main {
 }
 
 /*
-	- FOOTER
+	- footer
 	= = = = = = = = = = = = = = = = = = = =
 */
-/* contact and business partnerships */
+/* contact */
 #contact-bp {
 	display: table;
 	height: 60vh;
@@ -496,11 +506,11 @@ main {
 
 .footer-copyright span {
 	color: var(--font-developed-by);
-	filter: brightness(0.6);
+	filter: brightness(0.5);
 	transition: 0.2s;
 }
 
 .footer-copyright span:hover {
-	filter: brightness(0.9);
+	filter: brightness(1);
 	transition: 0.4s;
 }

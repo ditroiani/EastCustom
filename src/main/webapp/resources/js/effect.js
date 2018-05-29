@@ -1,49 +1,61 @@
 /*
- * Author: Diego Troiani
- * Obs: file dedicated for effect's.
+ * Author: Diego Troiani Rodrigues
+ * Obs: File dedicated for effects of the elements.
+ * 
+ * SUMMARY
+ * - attributes
+ * 		- for welcome slide
+ * 		- for desc company
+ * 		- for services
+ * - fade effect
+ * - welcome slide
+ * - promotions
  */
 
-/*
-	Summary
-	- fade
-	- slide
-	- promotions
-	- desc company
-	- services
-*/
+// - attributes
+// = = = = = = = = = = = = = = = = = = = =
+// for welcome slide
+var welcomeSlide = 0;
 
-// fade
+// for desc company
+var intervalDescCompany;
+
+// for services
+var intervalService;
+
+// - fade effect
 // = = = = = = = = = = = = = = = = = = = =
 function fade(id, time, ini, fin) {
 	var target = document.getElementsByClassName(id);
 	var alpha = ini;
 	var inc;
 
-	// verifica se efeito é valor para fadeIn ou fadeOut
+	// verify if effect is fadeIn or fadeOut
 	if (fin >= ini){
 		inc = 2;
 	} else {
 		inc = -2;
 	}
 	
-	// conversão de tempo / milliseconds
+	// conversion of time
 	time = (time * 1000) / 50;
 
-	// fade
+	// fade effect
 	var i = setInterval(function() {
-		// verifica valores para término de efeito
+		// verify values for end interval
 		if((inc > 0 && alpha >= fin) || (inc < 0 && alpha <= fin)){
+			// end interval
 			clearInterval(i);
 		}
-		// aplica efeito
-		setAlpha(target[slideIndex - 1], alpha);
+		// apply effect
+		setAlpha(target[welcomeSlide - 1], alpha);
 		
-		// atribui valor para contagem
+		// assign value for count
 		alpha += inc;
 	}, time);
 }
 
-// set alpha
+// set alpha (opacity)
 function setAlpha(target, alpha){
 	target.style.opacity = alpha/100;
 }
@@ -58,47 +70,41 @@ function fadeOut(id, time){
 	fade(id, time, 100, 0);
 }
 
-// - slide
+// - welcome slide
 // = = = = = = = = = = = = = = = = = = = =
-var slideIndex = 0;
 showSlides();
 
+// show slides
 function showSlides(){
-	var i;
 	var slides = document.getElementsByClassName('slide-content');
+	var i;
 	
-	// percorre e esconde slides
+	// runs slides and hides
 	for(i = 0; i < slides.length; i++){
 		slides[i].style.display = 'none';
 		slides[i].style.opacity = 0;
 	}
 		
-	// incrementa valor do index
-	slideIndex++;
+	// increment value
+	welcomeSlide++;
 	
-	// verifica index do slide e, caso for maior
-	// reseta valor
-	if(slideIndex > slides.length){
-		slideIndex = 1;
+	// verify value index and if it is great, reinit value
+	if(welcomeSlide > slides.length){
+		welcomeSlide = 1;
 	}
 	
-	// exibi slide com fadeIn
-	slides[slideIndex - 1].style.display = 'block';
-	fadeIn(slides[slideIndex - 1].getAttribute('class'), 0.5);
+	// show slide and add effect fadeIn
+	slides[welcomeSlide - 1].style.display = 'block';
+	fadeIn(slides[welcomeSlide - 1].getAttribute('class'), 0.5);
 	
-	// animação do caption, após a exibição da img do slide
-	slides[slideIndex - 1].querySelector('.caption-container').style.animation = 'captionAnimation 2s';
-	
-	// tempo da exibição do slide
+	// setTimeout show slide
 	setTimeout(showSlides, 8000);
 }
 
 // - desc company
 // = = = = = = = = = = = = = = = = = = = =
-var intervalDescCompany;
-
 $('.company').mouseenter(function(){
-	// change word's
+	// change color word's
 	if(intervalDescCompany == null) {
 		var company = $('.company');
 		var word = [
@@ -112,13 +118,12 @@ $('.company').mouseenter(function(){
 			$('.w7')];
 		var count = 0;
 		
-		// change background
+		// change background desc company
 		company.css('background','var(--primary)');
 		company.css('box-shadow', '0 1px 4px var(--primary)');
 		company.css('color','white');
-		company.css('transition','0.6s');
 		
-		// change each word color
+		// change selected word color
 		intervalDescCompany = setInterval(function() {
 			if (word[count]) {
 				var color = [
@@ -131,6 +136,8 @@ $('.company').mouseenter(function(){
 					'rgb(0, 40, 104)',
 					'rgb(213, 0, 0)'
 				];
+				
+				// verify last word for increment paragraph
 				if (word[count] == word[word.length - 1]) {
 					var lastP = [
 						'E ', 'é ', 'com ', 'enorme ',
@@ -155,17 +162,20 @@ $('.company').mouseenter(function(){
 							$('.w8').css('color', 'red');
 							$('.logo-desc-company img').css('filter', 'grayscale(0)');
 							$('.logo-desc-company img').css('opacity', '0.9');
+							
+							// end interval
 							clearInterval(intervalEachWord);
 						}
-					}, 160);
+					}, 150);
 				} else {
 					// change color
 					word[count].css('color', color[count]);
 					word[count].css('transition', '0.4s');
 				}
-				
+				// increment count
 				count++;
 			} else {
+				// end interval
 				clearInterval(intervalDescCompany);
 			}
 		}, 600);
@@ -174,8 +184,6 @@ $('.company').mouseenter(function(){
 
 // - services
 // = = = = = = = = = = = = = = = = = = = =
-var intervalService;
-
 $('.services').mouseenter(function(){
 	// light img
 	if (intervalService == null){
@@ -203,6 +211,7 @@ $('.services').mouseenter(function(){
 				count++;
 				img.css('filter', 'brightness(90%)');
 			} else if (count > 4){
+				// end interval
 				clearInterval(intervalService);
 			}
 		}, 400);
