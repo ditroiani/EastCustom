@@ -34,14 +34,29 @@ function noticiaG1() {
 			$.each(feed.messages, function(i, feedMessage) {
 				// message feed
 				if (i == 0) {
-					var messageFeed = document.createElement('div');
-					var titleMsgFeed = document.createElement('h4');
+					var feedMsg = document.createElement('div');
+					var msgContainer = document.createElement('div');
+					var imgMsg = document.createElement('img');
+					var titleMsg = document.createElement('h4');
+					var textMsg = document.createElement('p');
 					
-					messageFeed.setAttribute('class', 'carousel-item message-feed');
-					titleMsgFeed.appendChild(document.createTextNode('Mundo Automobilístico'));
+					feedMsg.setAttribute('class','carousel-item msg-feed');
+					msgContainer.setAttribute('class', 'msg-container no-select');
 					
-					messageFeed.append(titleMsgFeed);
-					slider.append(messageFeed);
+					imgMsg.setAttribute('alt', 'Globo Auto Esporte');
+					imgMsg.setAttribute('draggable', 'false');
+					imgMsg.setAttribute('src', 'resources/img/logo-auto-esporte.png');
+					imgMsg.setAttribute('title', 'Globo Auto Esporte');
+					titleMsg.textContent = 'Notícias';
+					textMsg.textContent = 
+						'Arraste para o lado e fique por dentro do mundo automobilístico';
+					
+					msgContainer.append(imgMsg);
+					msgContainer.append(titleMsg);
+					msgContainer.append(textMsg);
+					feedMsg.append(msgContainer);
+					
+					slider.append(feedMsg);
 				}
 				
 				// feed content
@@ -68,7 +83,7 @@ function noticiaG1() {
 				contentLink.setAttribute('class', 'link-feed');
 				title.textContent = feedMessage.title;
 				
-				link.setAttribute("class", "btn waves-effect red");
+				link.setAttribute("class", "btn waves-effect");
 				link.textContent = "Saiba mais";
 				link.setAttribute("onclick", "openLink('" + feedMessage.link + "');");
 				

@@ -154,10 +154,10 @@ $('.company').mouseenter(function(){
 							$('.w8').css('transition', '1.2s');
 							$('.w8').css('color', 'red');
 							$('.logo-desc-company img').css('filter', 'grayscale(0)');
-							$('.logo-desc-company img').css('opacity', '0.8');
+							$('.logo-desc-company img').css('opacity', '0.9');
 							clearInterval(intervalEachWord);
 						}
-					}, 250);
+					}, 160);
 				} else {
 					// change color
 					word[count].css('color', color[count]);
@@ -198,7 +198,7 @@ $('.services').mouseenter(function(){
 			} else if(count == 3){
 				count++;
 				img = $('.services .col img');
-				img.css('filter', 'brightness(5%)');
+				img.css('filter', 'brightness(28%)');
 			} else if (count == 4){
 				count++;
 				img.css('filter', 'brightness(90%)');
