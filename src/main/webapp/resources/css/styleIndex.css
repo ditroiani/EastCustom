@@ -24,9 +24,8 @@
 	= = = = = = = = = = = = = = = = = = = =
 */
 :root {
-	--font-developed-by: rgb(3, 169, 244);
+	--font-developed-by: rgb(16, 7, 94);
 	--gone-color: rgb(168, 0, 0);
-	--link-feed: rgb(239, 83, 80);
 	--primary: rgb(0, 0, 0);
 	--secondary: rgb(33, 33, 33);
 	--sticker: rgb(244, 67, 54);
@@ -132,7 +131,6 @@ main {
 	flex-direction: row;
 	height: 30%;
 	justify-content: center;
-	margin-bottom: 1%;
 	width: 70%;
 }
 
@@ -142,21 +140,13 @@ main {
 }
 
 .caption-container .caption-text {
-	border-left: 2px solid white;
-	border-right: 2px solid white;
 	color: white;
 	display: flex;
 	flex-direction: column;	
-	height: 60%;
+	height: 50%;
 	justify-content: center;
 	transition: 0.4s;
 	width: 70%;
-}
-
-.caption-container .caption-text:hover {
-	background: white;
-	color: var(--primary);
-	transition: 0.6s;
 }
 
 .caption-text section {
@@ -243,7 +233,7 @@ main {
 
 .promotion .overlay-promotion {
 	background: black;
-	color: #76ff03;
+	color: white;
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -272,7 +262,8 @@ main {
 /* notices */
 .preloader {
 	display: none;
-	height: 75vh;
+	min-height: 75vh;
+	max-height: 75vh;
 	position: relative;
 	width: 100%;
 }
@@ -287,11 +278,7 @@ main {
 }
 
 .notices {
-	display: none;
-	min-height: 75vh;
-	max-height: 75vh;
 	overflow: hidden;
-	width: 100%;
 }
 
 .msg-container {
@@ -301,14 +288,15 @@ main {
 	cursor: context-menu;
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	min-height: 75vh;
+	max-height: 75vh;
 	justify-content: center;
 	text-align: center;
 	width: 100%;
 }
 
-.msg-container img {
-	height: 25%;
+.msg-container .img-msg-feed {
+	height: 28%;
 	margin-bottom: 4%;
 	width: auto;
 }
@@ -317,41 +305,60 @@ main {
 	padding: 4%;
 }
 
-.img-feed {
-	height: 100%;
-	object-fit: cover;
-	object-position: center;
+.notices .notice-item {
+	min-height: 75vh;
+	max-height: 75vh;
 	position: relative;
 	width: 100%;
 }
 
-.carousel-item .caption-feed {
-	background: var(--primary);
+.notice-item .link-feed {
+	backface-visibility: hidden;
 	bottom: 0;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	left: 0;
-	height: 40%;
-	opacity: 0.3;
-	padding: 2%;
+	cursor: pointer;
+	height: 10%;
+	margin-right: 4%;
+	margin-bottom: 2%;
+	opacity: 0.5;
+	padding: 1%;
 	position: absolute;
-	text-align: center;
+	right: 0;
+	transition: 0.2s;
+	width: auto;
+	z-index: 2;
+}
+
+.notice-item .link-feed:hover {
+	opacity: 1.0;
 	transition: 0.4s;
+}
+
+.notice-item .img-feed {
+	backface-visibility: hidden;
+	min-height: 100%;
+	max-height: 100%;
+	object-fit: cover;
+	object-position: center;
+	position: absolute;
+	left: 0;
+	top: 0;
 	width: 100%;
 }
 
-.carousel-item .caption-feed:hover {
-	opacity: 0.8;
-	transition: 0.6s;
+.notice-item .caption-feed {
+	background: var(--primary);
+	bottom: 0;
+	left: 0;
+	height: 40%;
+	opacity: 0.3;
+	position: absolute;
+	transition: 0.2s;
+	width: 100%;
 }
 
-.caption-feed .title-feed {
-	color: var(--title-feed);
-}
-
-.link-feed .btn {
-	background-color: var(--gone-color);
+.notice-item .caption-feed:hover {
+	opacity: 0.9;
+	transition: 0.4s;
 }
 
 /* description company */
@@ -488,6 +495,7 @@ main {
 }
 
 #map {
+	border-radius: 2px;
 	height: 100%;
 }
 
@@ -506,7 +514,7 @@ main {
 
 .footer-copyright span {
 	color: var(--font-developed-by);
-	filter: brightness(0.5);
+	filter: brightness(0.8);
 	transition: 0.2s;
 }
 

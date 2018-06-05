@@ -25,6 +25,10 @@
 		<link href="resources/css/materialize.css" type="text/css"
 			rel="stylesheet" media="screen,projection">
 			
+		<!-- flickity carousel css -->
+		<link href="resources/css/flickity.css" type="text/css"
+			rel="stylesheet" media="screen,projection">
+		
 		<!-- dedicated css -->
 		<link href="resources/css/styleIndex.css" type="text/css" rel="stylesheet">
 		<link href="resources/css/resolution.css" type="text/css"
@@ -35,7 +39,7 @@
 		<header>
 			<!-- navbar -->
 			<nav>
-				<a href="#" draggable="false">
+				<a href="javascript:openNewTab();" draggable="false">
 					<img alt="Oficina East Custom" draggable="false" 
 					src="resources/img/logo2.png">
 				</a>
@@ -50,9 +54,9 @@
 			<div class="slideshow">
 				<div class="slide-content">
 					<img alt="" src="resources/img/slide2.jpg">
-					<div class="caption-container">
+					<div class="caption-container no-select">
 						<div class="caption-media">
-							<img alt="" src="resources/img/icon-slider1.png">
+							<img alt="" src="resources/img/icon-slider1.png" draggable="false">
 						</div>
 						<div class="caption-text">
 							<section>
@@ -65,9 +69,9 @@
 				
 				<div class="slide-content">
 					<img alt="" src="resources/img/slide3.jpg">
-					<div class="caption-container">
+					<div class="caption-container no-select">
 						<div class="caption-media">
-							<img alt="" src="resources/img/icon-slider2.png">
+							<img alt="" src="resources/img/icon-slider2.png" draggable="false">
 						</div>
 						<div class="caption-text">
 							<section>
@@ -93,7 +97,7 @@
 				<!-- mobile title -->
 				<div class="hide-on-med-and-up show-on-small">
 					<div class="col s12 m12 l12 mobile-title">
-						<blockquote>Notícias</blockquote>
+						<blockquote>Promoções</blockquote>
 					</div>
 				</div>
 				<div class="col s12 m5 l5">	
@@ -121,7 +125,7 @@
 				        	<div class="indeterminate"></div>
 					  	</div>
 					</div>
-					<div class="carousel carousel-slider notices"></div>
+					<div class="notices"></div>
 				</div>
 			</div>
 			
@@ -129,7 +133,7 @@
 			<div class="company row">
 				<div class="col s8 m7 l7 desc-company">
 					<div class="content-desc-company">
-						<h5 class="w0">Mas afinal, o que é a East Custom?</h5>
+						<h5>Mas afinal, o que é a East Custom?</h5>
 						<div class="divider"></div>
 						<p>Fundada em 2007 e sediada na Zona Leste de São Paulo, 
 						a <span class="w1"><b>East Custom</b></span> é uma oficina com grande experiência 
@@ -243,6 +247,7 @@
 		<!-- import's js -->
 		<script src="resources/js/jquery-3.2.1.js"></script>
 		<script src="resources/js/materialize.js"></script>
+		<script src="resources/js/flickity.min.js"></script>
 		<script async charset="utf-8" src="resources/js/dedicated.js"></script>
 		<script charset="utf-8" src="resources/js/effect.js"></script>
 		<script async src="https://maps.googleapis.com/maps/api/js?

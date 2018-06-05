@@ -9,7 +9,9 @@
  * 		- for services
  * - fade effect
  * - welcome slide
- * - promotions
+ * - desc company
+ * - notices
+ * - services
  */
 
 // - attributes
@@ -108,7 +110,6 @@ $('.company').mouseenter(function(){
 	if(intervalDescCompany == null) {
 		var company = $('.company');
 		var word = [
-			$('.w0'),
 			$('.w1'),
 			$('.w2'),
 			$('.w3'),
@@ -127,7 +128,6 @@ $('.company').mouseenter(function(){
 		intervalDescCompany = setInterval(function() {
 			if (word[count]) {
 				var color = [
-					'rgb(255, 152, 0)',
 					'rgb(38, 38, 123)',
 					'rgb(255, 235, 59)',
 					'rgb(255, 235, 59)',

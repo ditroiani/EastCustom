@@ -23,6 +23,10 @@ $(document).ready(function() {
 	notices();
 });
 
+function openNewTab() {
+	window.open('https://google.com', '_system');
+}
+
 // - notices G1
 // = = = = = = = = = = = = = = = = = = = =
 function notices() {
@@ -35,21 +39,26 @@ function notices() {
 			$('.preloader').fadeIn(5000);
 		},
 		success : function(feed) {
-			// init carousel
-			var slider = $('.notices').carousel();
+			// feed carousel
+			var carousel = $('.notices');
+			var iconHideCaption = document.createElement('img');
 			
-			// set each item of carousel
-			$.each(feed.messages, function(i, feedMessage) {
-				// add message feed to carousel
+			// set value icon for hide caption
+			iconHideCaption.setAttribute('src','resources/img/icon-hide-caption.png');
+			// carousel.append(iconHideCaption);
+			
+			// set each feed
+			$.each(feed.messages, function(i, feedMessage){
 				if (i == 0) {
-					var feedMsg = document.createElement('div');
+					var itemFeedMsg = document.createElement('div');
 					var msgContainer = document.createElement('div');
 					var imgMsg = document.createElement('img');
 					var titleMsg = document.createElement('h4');
 					var textMsg = document.createElement('p');
 					
 					// set class in containers
-					feedMsg.setAttribute('class','carousel-item msg-feed');
+					itemFeedMsg.setAttribute('class','notice-item');
+					imgMsg.setAttribute('class', 'img-msg-feed');
 					msgContainer.setAttribute('class', 'msg-container no-select');
 					
 					// set value in elements
@@ -65,67 +74,55 @@ function notices() {
 					msgContainer.append(imgMsg);
 					msgContainer.append(titleMsg);
 					msgContainer.append(textMsg);
-					feedMsg.append(msgContainer);
+					itemFeedMsg.append(msgContainer);
 					
 					// add item to carousel
-					slider.append(feedMsg);
+					carousel.append(itemFeedMsg);
 				}
 				
-				// feed
-				var feed = document.createElement('div');
-				var img = document.createElement('img');
-				var caption = document.createElement('div');
-				var contentTitle = document.createElement('div');
-				var contentLink = document.createElement('div');
-				var title = document.createElement('h5');
-				var link = document.createElement('a');
-				
-				// add class to elements
-				feed.setAttribute('class', 'carousel-item');
-				img.setAttribute('class', 'img-feed');
-				caption.setAttribute('class', 'caption-feed');
-				contentTitle.setAttribute('class', 'title-feed');
-				contentLink.setAttribute('class', 'link-feed');
-				link.setAttribute("class", "btn waves-effect");
-
-				// set values to elements
-				img.setAttribute('src', (feedMessage.imgDescription != null) ? 
-						'data:image/jpg;base64, ' + feedMessage.imgDescription : 
-						'resources/img/g1-logo.png');
-				img.setAttribute('title', feedMessage.title);
-				title.textContent = feedMessage.title;
-				link.textContent = "Saiba mais";
-				link.setAttribute("onclick", "openLink('" + feedMessage.link + "');");
-				
-				// append elements to containers
-				contentTitle.append(title);
-				contentLink.append(link);
-				caption.append(contentTitle);
-				caption.append(contentLink);
+				// elements for item carousel
+				var itemFeed = document.createElement('div');
+				var imgFeed = document.createElement('img');
+				var linkFeed = document.createElement('img');
+				var captionFeed = document.createElement('div');
+				var titleFeed = document.createElement('h4');
 					
-				// append feed element's
-				feed.append(img);
-				feed.append(caption)
+				// set class to elements
+				linkFeed.setAttribute('class', 'link-feed');
+				itemFeed.setAttribute('class', 'notice-item');
+				imgFeed.setAttribute('class', 'img-feed');
+				captionFeed.setAttribute('class', 'caption-feed');
+
+				// set feed value
+				linkFeed.setAttribute("onclick", "openLink('" + 
+						feedMessage.link + "');");
+				linkFeed.setAttribute('src', 'resources/img/icon-link-feed.png');
+				linkFeed.setAttribute('title', 'Clique aqui e saiba mais!');
+				imgFeed.setAttribute('src', (feedMessage.imgDescription != null) ? 
+						'data:image/jpg;base64, ' + feedMessage.imgDescription : 
+				'resources/img/g1-logo.png');
+				titleFeed.textContent = feedMessage.title;
 				
-				// add element in carousel and increment count
-				slider.append(feed);
-				i++;
+				// append items
+				// captionFeed.append(titleFeed);
+				itemFeed.append(imgFeed);
+				itemFeed.append(linkFeed);
+				itemFeed.append(captionFeed);
+				carousel.append(itemFeed);
 			});
-
-			// remove init on carousel to prevent reinit when 
-			// it is not necessary
-			if (slider.hasClass('initialized')) {
-				slider.removeClass('initialized');
-			}
-
-			// hide preloader and show notices
-			$('.preloader').hide();
-			$('.notices').fadeIn(4000);
 			
-			// reinit carousel for change
-			slider.carousel({
-				fullWidth : true
+			// fadeOut preloader
+			$('.preloader').hide();
+			
+			carousel.flickity({
+				draggable: true,
+				prevNextButtons: false,
+				pageDots: false,
+				wrapAround: true
 			});
+			
+			// init carousel
+			carousel.fadeIn(3000);
 		},
 		error : function(e) {
 			// toast error
@@ -135,8 +132,9 @@ function notices() {
 }
 
 // link notice
-function openLink(link) {
+function openLink(link){
 	window.open(link, '_system');
+	console.log(link);
 }
 
 // - map with Google
